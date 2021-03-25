@@ -1,27 +1,5 @@
-<?php
-// Initialize the session
-session_start();
+<?php include("estrutura.php");?>
  
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: ../index.php");
-    exit;
-}
-if(!isset($_SESSION["adm"])){
-	
-	echo  "<script>alert('Não tem permissao');</script>";
-	header('location: welcome2.php?erro=1');	
-}
-
-include("estrutura.php");
-
-
-
-?>
-
- 
-	
-
        <div class="content-body">
 
             <!-- Page Headings Start -->
