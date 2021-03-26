@@ -62,6 +62,7 @@ if(isset($_GET["reciclagem"]) == 1){
 
                 </tr>  
            ';
+           
         }else{
            $output .= '  
                 <tr>  

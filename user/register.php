@@ -142,7 +142,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
  if(empty(trim($_POST["nfc"]))){
      
-        $username_err = "Please enter a nfc.";
+        $nfc_err = "Please enter a nfc.";
    
     } else{
         

@@ -9,8 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 if(!isset($_SESSION["adm"])){
 	
-	echo  "<script>alert('Não tem permissao');</script>";
-	header('location: welcome2.php?erro=1');	
+	header('location: ../error.html');	
 }
 
 ?>
