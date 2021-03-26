@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                      
             // Set parameters
           
-            $param_username = $username;
+            $param_adata = $adata;
            
             $param_maquina = $maquina;
             
