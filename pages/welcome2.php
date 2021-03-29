@@ -25,7 +25,7 @@ require_once "../user/config.php";
  
 // Define variables and initialize with empty values
 
-$adata = $maquina = $obra = $combustivel = $litros = $km = $horas = $assinatura = "";
+$user = $adata = $maquina = $obra = $combustivel = $litros = $km = $horas = $assinatura = "";
 
 $adata_err = $maquina_err = $obra_err = $combustivel_err = $litros_err = $km_err = $horas_err = $assinatura_err = "";
  
@@ -48,6 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     } else{       
        
+        $user = $_SESSION["username"];
         $adata = trim($_POST["adata"]);
         $maquina = trim($_POST["maquina"]);
         $obra = trim($_POST["obra"]);
@@ -63,16 +64,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // Prepare an insert statement
        
-        $sql = "INSERT INTO abastecimentos (adata, maquina, obra, combustivel, litros, km, horas, assinatura) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO abastecimentos (user, adata, maquina, obra, combustivel, litros, km, horas, assinatura, aceite) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
            
             // Bind variables to the prepared statement as parameters
            
-            mysqli_stmt_bind_param($stmt, "ssssssss", $param_adata, $param_maquina, $param_obra, $param_combustivel, $param_litros, $param_km, $param_horas, $param_assinatura);
+            mysqli_stmt_bind_param($stmt, "ssssssssss",$param_user, $param_adata, $param_maquina, $param_obra, $param_combustivel, $param_litros, $param_km, $param_horas, $param_assinatura, $param_aceite);
                      
             // Set parameters
-          
+            
+            $param_user = $user;
+
             $param_adata = $adata;
            
             $param_maquina = $maquina;
@@ -88,6 +91,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_horas = $horas;
             
             $param_assinatura = $assinatura;
+
+            $param_aceite = 0;
          
             if(mysqli_stmt_execute($stmt)){
           

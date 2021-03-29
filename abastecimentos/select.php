@@ -7,7 +7,7 @@ if(isset($_GET["reciclagem"]) == 1){
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
  INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
  INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
- where abastecimentos.reciclagem = 1
+ where abastecimentos.reciclagem = 1 and aceite = 1
  ORDER BY id_abastecimentos DESC";  
  
 }else{
@@ -16,7 +16,7 @@ if(isset($_GET["reciclagem"]) == 1){
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
  INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
  INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
- where abastecimentos.reciclagem = 0
+ where abastecimentos.reciclagem = 0 and aceite = 1
  ORDER BY id_abastecimentos DESC";  
  
 }
