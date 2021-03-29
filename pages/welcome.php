@@ -1,5 +1,4 @@
-<?php include("estrutura.php");?>
- 
+<?php include("estrutura.php"); ?>
        <div class="content-body">
 
             <!-- Page Headings Start -->

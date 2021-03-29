@@ -113,6 +113,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
   
     mysqli_close($link);
+    header("location: ../user/logout.php");
+    exit;
 }
 
 ?>
@@ -298,7 +300,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                 <div class="form-group">
 
-                                    <input type="submit" class="button button-primary button-outline" value="Submit">
+                                    <input type="submit" class="button button-primary button-outline" value="Submit" 
 
                                     <input type="reset" class="button button-primary button-outline" value="Reset">
 
