@@ -1,42 +1,67 @@
-<?php include("estrutura.php"); ?>
-       <div class="content-body">
-            <div class="box">
-                <div class="box-head">
-                    <h4 class="title">News & Updates</h4>
-                </div>
-                <div class="box-body">
-                <!-- News & Updates Inner Start -->
-                    <div class="news-update-inner">
+<?php 
+include("estrutura.php"); 
+include("../user/config.php"); 
+$output = ''; 
+$sql = "SELECT * FROM abastecimentos where abastecimentos.reciclagem = 0 and aceite = 0";  
+$result = mysqli_query($link, $sql);
+if(mysqli_num_rows($result) > 0)  
+{  
+    echo ' 
 
-                        <!-- News Item -->
-                        <div class="news-item">
+    <div class="content-body">
+         <div class="box">
+             <div class="box-head">
+                 <h4 class="title">Novos Abastecimentos</h4>
+             </div>
+             <div class="box-body">
+             <!-- News & Updates Inner Start -->
+                 <div class="news-update-inner">
 
-                            <!-- Content -->
-                            <div class="content">
-                                <!-- Category -->
-                                <div class="categories">
-                                    <a href="#" class="new">Novo Registro</a>
-                                </div>
-                                <!-- Title -->
-                                <h4 class="title"><a href="#">Novo registro enviado pelo user ***.</a></h4>
-                                <!-- Meta -->
-                                <ul class="meta">
-                                    <li><i class="zmdi zmdi-time"></i>10 Houre ago</li>
-                                    <li>By:***</a></li>
-                                </ul>
-                            </div>
+                     <!-- News Item -->
+                     <div class="news-item">
 
-                        </div>
+                         <!-- Content -->
+                         <div class="content">';
+     while($row = mysqli_fetch_array($result))  
+     { 
 
-                    </div>
+        echo ' 
 
-                </div>
+                                   <!-- Category -->
+                                   <div class="categories">
+                                       <a href="#" class="new">Novo Registro</a>
+                                   </div>
+                                   <!-- Title -->
+                                   <h4 class="title"><a href="#">Novo registro enviado pelo user '.$row["assinatura"].'.</a></h4>
+                                   <!-- Meta -->
+                                   <ul class="meta">
 
-            </div>
+                                       <li><a>By:'.$row["assinatura"].'</a></li>
+                                   </ul>
+                                   </br>';
+     }
+     echo'
+                               </div>
+   
+                           </div>
+   
+                       </div>
+   
+                   </div>
+   
+               </div>
+   
+          </div> 
+               
+          ';
+        
+    }
 
-       </div>
-            
-	    <!-- Global Vendor, plugins & Activation JS -->
+?>
+
+
+        
+	    <!--html Global Vendor, plugins & Activation JS -->
     <script src="../assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="../assets/js/vendor/jquery-3.3.1.min.js"></script>
     <script src="../assets/js/vendor/popper.min.js"></script>
@@ -50,11 +75,10 @@
     
 
 	
-</body>		
+	
 
     <!-- JS
 ============================================ -->
 
 </body>
-
 </html>
