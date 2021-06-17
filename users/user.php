@@ -15,7 +15,6 @@
                     <h3 href="user.php"class="title"><?php if(isset($_GET["reciclagem"]) == 1){ print "Reciclagem Users";}else{print " User";} ?></h3>
                     <div class="row justify-content-between align-items-center mb-10">
                 		<?php if(isset($_GET["reciclagem"]) == 1){ echo "<a href=user.php>Voltar</a>"; }else{echo "<a href=user.php?reciclagem=1>Reciclagem </a>";} ?> 
-                		<?php if(isset($_GET["reciclagem"]) == 0){ echo "<a href=relatorio.php>Relatorio</a>"; } ?>
                 	</div>
                 </div>
                 <div class="box-body">

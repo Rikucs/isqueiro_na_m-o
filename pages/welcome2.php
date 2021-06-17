@@ -1,5 +1,7 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Initialize the session
 
 session_start();
@@ -25,7 +27,7 @@ require_once "../user/config.php";
  
 // Define variables and initialize with empty values
 
-$user = $adata = $maquina = $obra = $combustivel = $litros = $km = $horas = $assinatura = "";
+$adata = $maquina = $obra = $combustivel = $litros = $km = $horas = $assinatura = "";
 
 $adata_err = $maquina_err = $obra_err = $combustivel_err = $litros_err = $km_err = $horas_err = $assinatura_err = "";
  
@@ -48,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     } else{       
        
-        $user = $_SESSION["username"];
+        
         $adata = trim($_POST["adata"]);
         $maquina = trim($_POST["maquina"]);
         $obra = trim($_POST["obra"]);
@@ -64,17 +66,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // Prepare an insert statement
        
-        $sql = "INSERT INTO abastecimentos (user, adata, maquina, obra, combustivel, litros, km, horas, assinatura, aceite) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO abastecimentos ( adata, maquina, obra, combustivel, litros, km, horas, assinatura, aceite) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
            
             // Bind variables to the prepared statement as parameters
            
-            mysqli_stmt_bind_param($stmt, "ssssssssss",$param_user, $param_adata, $param_maquina, $param_obra, $param_combustivel, $param_litros, $param_km, $param_horas, $param_assinatura, $param_aceite);
+            mysqli_stmt_bind_param($stmt, "sssssssss", $param_adata, $param_maquina, $param_obra, $param_combustivel, $param_litros, $param_km, $param_horas, $param_assinatura, $param_aceite);
                      
             // Set parameters
             
-            $param_user = $user;
+           
 
             $param_adata = $adata;
            

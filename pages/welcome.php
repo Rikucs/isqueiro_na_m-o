@@ -7,7 +7,6 @@ $result = mysqli_query($link, $sql);
 if(mysqli_num_rows($result) > 0)  
 {  
     echo ' 
-
     <div class="content-body">
          <div class="box">
              <div class="box-head">
@@ -16,17 +15,14 @@ if(mysqli_num_rows($result) > 0)
              <div class="box-body">
              <!-- News & Updates Inner Start -->
                  <div class="news-update-inner">
-
                      <!-- News Item -->
                      <div class="news-item">
-
                          <!-- Content -->
                          <div class="content">';
      while($row = mysqli_fetch_array($result))  
      { 
 
         echo ' 
-
                                    <!-- Category -->
                                    <div class="categories">
                                        <a href="#" class="new">Novo Registro</a>
@@ -35,7 +31,6 @@ if(mysqli_num_rows($result) > 0)
                                    <h4 class="title"><a href="#">Novo registro enviado pelo user '.$row["assinatura"].'.</a></h4>
                                    <!-- Meta -->
                                    <ul class="meta">
-
                                        <li><a>By:'.$row["assinatura"].'</a></li>
                                    </ul>
                                    </br>';

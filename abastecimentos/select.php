@@ -47,7 +47,7 @@ if(isset($_GET["reciclagem"]) == 1){
            $output .= '  
                 <tr>  
                      <td>'.$row["id_abastecimentos"].'</td>  
-                     <td class="adata" data-id1="'.$row["id_abastecimentos"].'" contenteditable>'.$row["adata"].'</td>  
+                     <td class="adata" data-id1="'.$row["id_abastecimentos"].'" >'.$row["adata"].'</td>  
                      <td class="maquina" data-id2="'.$row["id_abastecimentos"].'" contenteditable>'.$row["Nome"].'</td>
                      <td class="obra" data-id3="'.$row["id_abastecimentos"].'" contenteditable>'.$row["nome"].'</td>
                      <td class="combustivel" data-id4="'.$row["id_abastecimentos"].'" contenteditable>'.$row["NOME"].'</td>
@@ -67,7 +67,7 @@ if(isset($_GET["reciclagem"]) == 1){
            $output .= '  
                 <tr>  
                      <td>'.$row["id_abastecimentos"].'</td>  
-                     <td class="adata" data-id1="'.$row["id_abastecimentos"].'" contenteditable>'.$row["adata"].'</td>  
+                     <td class="adata" data-id1="'.$row["id_abastecimentos"].'" >'.$row["adata"].'</td>  
                      <td class="maquina" data-id2="'.$row["id_abastecimentos"].'" contenteditable>'.$row["Nome"].'</td>
                      <td class="obra" data-id3="'.$row["id_abastecimentos"].'" contenteditable>'.$row["nome"].'</td>
                      <td class="combustivel" data-id4="'.$row["id_abastecimentos"].'" contenteditable>'.$row["NOME"].'</td>
@@ -85,7 +85,7 @@ if(isset($_GET["reciclagem"]) == 1){
           $output .= '  
             <tr>  
                 <td></td>  
-                <td id="adata" contenteditable></td>  
+                <td id="adata" ></td>  
                 <td id="maquina" contenteditable></td>
                 <td id="obra" contenteditable></td>
                 <td id="combustivel" contenteditable></td>
@@ -104,7 +104,7 @@ if(isset($_GET["reciclagem"]) == 1){
         $output .=  '  
              <tr>  
                   <td></td>  
-                  <td id="adata" contenteditable></td> 
+                  <td id="adata" ></td> 
                   <td id="maquina" contenteditable></td> 
                   <td id="obra" contenteditable></td>
                   <td id="combustivel" contenteditable></td>

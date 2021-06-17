@@ -73,11 +73,7 @@
            var km = $('#km').text();   
            var horas = $('#horas').text();  
            var assinatura = $('#assinatura').text();    
-           if(adata == '')  
-           {  
-                alert("Coloque a data");  
-                return false;  
-           } 
+           
            if(maquina == '')  
            {  
                 alert("Nome da maquina");  
