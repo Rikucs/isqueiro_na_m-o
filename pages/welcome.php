@@ -28,7 +28,7 @@ if(mysqli_num_rows($result) > 0)
                                        <a href="#" class="new">Novo Registro</a>
                                    </div>
                                    <!-- Title -->
-                                   <h4 class="title"><a href="#">Novo registro enviado pelo user '.$row["assinatura"].'.</a></h4>
+                                   <h4 class="title"><a href="#">Novo registro enviado pelo usuario '.$row["assinatura"].'.</a></h4>
                                    <!-- Meta -->
                                    <ul class="meta">
                                        <li><a>By:'.$row["assinatura"].'</a></li>

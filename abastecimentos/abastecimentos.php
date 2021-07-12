@@ -76,7 +76,7 @@
            
            if(maquina == '')  
            {  
-                alert("Nome da maquina");  
+                alert("Nome da maquina");   
                 return false;  
            } 
            if(obra == '')  

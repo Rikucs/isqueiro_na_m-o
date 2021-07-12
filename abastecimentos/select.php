@@ -2,6 +2,29 @@
 include("../user/config.php");
  $output = ''; 
 
+ $query = "SELECT id_maquinas, Nome FROM maquinas";
+ $result = mysqli_query($link, $query);
+ $opcoes = "";	 
+
+ while($row = mysqli_fetch_array($result))
+{
+	$opcoes = $opcoes."<option>$row[0] - $row[1]";
+}
+$query = "SELECT id_obras, nome FROM obras";
+$result = mysqli_query($link, $query);
+$opcoes1 = "";	 
+
+while($row = mysqli_fetch_array($result))
+{
+    $opcoes1 = $opcoes1."<option>$row[0] - $row[1]";
+} $query = "SELECT id_combustiveis, NOME FROM combustiveis";
+$result = mysqli_query($link, $query);
+$opcoes2 = "";	 
+
+while($row = mysqli_fetch_array($result))
+{
+    $opcoes2 = $opcoes2."<option>$row[0] - $row[1]";
+}
 if(isset($_GET["reciclagem"]) == 1){
  $sql = "SELECT * FROM abastecimentos 
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
@@ -85,10 +108,26 @@ if(isset($_GET["reciclagem"]) == 1){
           $output .= '  
             <tr>  
                 <td></td>  
+<<<<<<< Updated upstream
                 <td id="adata" ></td>  
                 <td id="maquina" contenteditable></td>
                 <td id="obra" contenteditable></td>
                 <td id="combustivel" contenteditable></td>
+=======
+                <td id="adata" >'.date("Y-m-d").'</td>  
+                <td id="maquina" contenteditable><select name="maquina" required>
+                <option hidden></option>
+               '.$opcoes.'
+               </select></td>
+                <td id="obra" contenteditable><select name="obra" required>
+                <option hidden></option>
+               '.$opcoes1.'
+               </select></td>
+                <td id="combustivel" contenteditable><select name="combustivel" required>
+                <option hidden></option>
+               '.$opcoes2.'
+               </select></td>
+>>>>>>> Stashed changes
                 <td id="litros" contenteditable></td>  
                 <td id="km" contenteditable></td> 
                 <td id="horas" contenteditable></td>  
