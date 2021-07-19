@@ -74,6 +74,12 @@
            var horas = $('#horas').text();  
            var assinatura = $('#assinatura').text();    
            
+
+           if(adata == '')  
+           {  
+                alert("COloque a data");  
+                return false;  
+           } 
            if(maquina == '')  
            {  
                 alert("Nome da maquina");  

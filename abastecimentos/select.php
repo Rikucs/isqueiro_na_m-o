@@ -2,12 +2,35 @@
 include("../user/config.php");
  $output = ''; 
 
+ $query = "SELECT id_maquinas, Nome FROM maquinas";
+ $result = mysqli_query($link, $query);
+ $opcoes = "";	 
+
+ while($row = mysqli_fetch_array($result))
+{
+	$opcoes = $opcoes."<option>$row[0] - $row[1]";
+}
+$query = "SELECT id_obras, nome FROM obras";
+$result = mysqli_query($link, $query);
+$opcoes1 = "";	 
+
+while($row = mysqli_fetch_array($result))
+{
+    $opcoes1 = $opcoes1."<option>$row[0] - $row[1]";
+} $query = "SELECT id_combustiveis, NOME FROM combustiveis";
+$result = mysqli_query($link, $query);
+$opcoes2 = "";	 
+
+while($row = mysqli_fetch_array($result))
+{
+    $opcoes2 = $opcoes2."<option>$row[0] - $row[1]";
+}
 if(isset($_GET["reciclagem"]) == 1){
  $sql = "SELECT * FROM abastecimentos 
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
  INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
  INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
- where abastecimentos.reciclagem = 1 and aceite = 1
+ where abastecimentos.reciclagem = 1 
  ORDER BY id_abastecimentos DESC";  
  
 }else{
@@ -16,7 +39,7 @@ if(isset($_GET["reciclagem"]) == 1){
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
  INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
  INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
- where abastecimentos.reciclagem = 0 and aceite = 1
+ where abastecimentos.reciclagem = 0 
  ORDER BY id_abastecimentos DESC";  
  
 }
@@ -81,42 +104,7 @@ if(isset($_GET["reciclagem"]) == 1){
            ';
           }
         }     
-        if(isset($_GET["reciclagem"]) == 0){ 
-          $output .= '  
-            <tr>  
-                <td></td>  
-                <td id="adata" ></td>  
-                <td id="maquina" contenteditable></td>
-                <td id="obra" contenteditable></td>
-                <td id="combustivel" contenteditable></td>
-                <td id="litros" contenteditable></td>  
-                <td id="km" contenteditable></td> 
-                <td id="horas" contenteditable></td>  
-                <td id="assinatura" contenteditable></td>   
-                <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">Adicionar</button></td>  
-            </tr>  
-          ';
-        }
-      
- }else{
-
-      if(isset($_GET["reciclagem"]) == 0){ 
-        $output .=  '  
-             <tr>  
-                  <td></td>  
-                  <td id="adata" ></td> 
-                  <td id="maquina" contenteditable></td> 
-                  <td id="obra" contenteditable></td>
-                  <td id="combustivel" contenteditable></td>
-                  <td id="litros" contenteditable></td>  
-                  <td id="km" contenteditable></td> 
-                  <td id="horas" contenteditable></td>  
-                  <td id="assinatura" contenteditable></td> 
-                  <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">Adicionar</button></td>  
-            </tr>  
-        ';
-    }  
- }  
+     }
  $output .= '</table>  
       </div>';  
  echo $output;  

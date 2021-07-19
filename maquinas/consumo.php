@@ -36,34 +36,20 @@ if(mysqli_num_rows($result) > 0){
     echo "Oops! Something went wrong. Please try again later.";
 }
 
-$sql = "SELECT * FROM abastecimentos 
- INNER JOIN obras ON abastecimentos.obra = obras.id_obras
- INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
- INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
- where abastecimentos.maquina = '".$maquina."'
- ORDER BY id_abastecimentos DESC";  
+$sql = "SELECT SUM(horas) AS horas FROM abastecimentos where maquina = '".$_GET["maquina"]."' ";
+$result = mysqli_query($link, $sql);
+$row_contar = mysqli_fetch_assoc($result); 
+$contagemH = $row_contar['horas'];
 
+
+$sql = "SELECT SUM(litros) AS litros FROM abastecimentos where maquina = '".$_GET["maquina"]."' ";
+$result = mysqli_query($link, $sql);
+$row_contar = mysqli_fetch_assoc($result); 
+$contagemL = $row_contar['litros'];
 
 //Media Registros ----------------------------------------------------------------------------------------
 
-
-$media = 0;
-$contagem = 0;
-$result = mysqli_query($link, $sql);
-if(mysqli_num_rows($result) > 0){
-
-    while($row = mysqli_fetch_array($result)){ 
-        $mediaL = $media + $row["litros"];
-        $contagemH = $contagem + $row["horas"];
-    }
-
-    $media = $mediaL / $contagemH ;
-
-}else{
-
-    echo "Oops! Something went wrong. Please try again later.";
-}
-
+$media = $contagemL / $contagemH ;
 
 //Menor Registro ----------------------------------------------------------------------------------------
 
@@ -187,7 +173,7 @@ if(mysqli_num_rows($result) > 0){
     <!--Invoice Total Start-->
     <div class="col-12 d-flex justify-content-end mb-15">
         <div class="text-right">
-            <h6>Total Litros: <?php echo $mediaL ?> </h6>
+            <h6>Total Litros: <?php echo $contagemL ?> </h6>
             <h6>Total Horas: <?php echo $contagemH ?> </h6>
             <hr class="mb-10">
             <h3 class="fw-600 mb-0">Media Total: <?php echo $media ?></h3>
@@ -203,8 +189,6 @@ if(mysqli_num_rows($result) > 0){
     <div class="col-12 d-flex justify-content-end mb-30">
         <div class="buttons-group">
             <button class="button button-outline button-primary">Download PDF</button>
-            <button class="button button-outline button-info">Send Print</button>
-            <button class="button button-outline button-secondary">Payment Process</button>
         </div>
     </div>
     <!--Invoice Action Button Start-->

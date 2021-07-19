@@ -10,7 +10,7 @@ session_start();
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     
-    //header("location: ../index.php");
+    header("location: ../index.php");
    
     exit;
 
@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Redirect to login page
                 echo "<script> alert('inserido com sucesso')</scritp>";
                 echo $horas;
-               // header("location: ../index.php");
+               header("location: ../index.php");
           
             } else{
            
@@ -148,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
   
     mysqli_close($link);
-   // header("location: ../user/logout.php");
+   header("location: ../user/logout.php");
     exit;
 }
 

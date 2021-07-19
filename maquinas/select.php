@@ -2,6 +2,8 @@
 include("../user/config.php");
  $output = '';
  
+
+
  if(isset($_GET["reciclagem"]) == 1){
  
      $sql = "SELECT * FROM maquinas 
@@ -88,7 +90,7 @@ include("../user/config.php");
                     <td></td>  
                     <td id="Nome" contenteditable></td>  
                     <td id="matricula" contenteditable></td>
-			     <td id="combustivel" contenteditable></td>  
+			     <td id="combustivel" contenteditable> </td>  
                     <td id="ano" contenteditable></td> 
 			     <td id="km" contenteditable></td>  
                     <td id="h" contenteditable></td> 
