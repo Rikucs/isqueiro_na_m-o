@@ -59,33 +59,6 @@ $result = mysqli_query($link, $sql);
           ';   
           }  
      } 
-     if(isset($_GET["reciclagem"]) == 0){  
-          $output .= '  
-               <tr>  
-                    <td></td>  
-                    <td id="username" contenteditable></td>  
-                    <td id="password" contenteditable></td>
-                    <td id="adm" contenteditable></td>  
-                    <td id="nfc" contenteditable></td>
-                    <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">Adicionar</button></td>  
-               </tr>  
-          '; 
-     } 
- }  
- else  
- {  
-     if(isset($_GET["reciclagem"]) == 0){ 
-          $output .=  '  
-               <tr>  
-                    <td></td>  
-                    <td id="username" contenteditable></td>  
-                    <td id="password" contenteditable></td>
-                    <td id="adm" contenteditable></td>  
-                    <td id="nfc" contenteditable></td>
-                    <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">Adicionar</button></td>  
-               </tr>  
-          ';
-     }  
  }  
  $output .= '</table>  
       </div>';  

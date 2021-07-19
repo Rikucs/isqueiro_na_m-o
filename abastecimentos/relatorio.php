@@ -8,7 +8,7 @@ $sql = "SELECT * FROM abastecimentos
 INNER JOIN obras ON abastecimentos.obra = obras.id_obras
 INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas 
 INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
-where abastecimentos.reciclagem = '0' and aceite = '1' 
+where abastecimentos.reciclagem = '0' 
 ORDER BY id_abastecimentos";
 
 $abastecimentosado = $banco->query($sql);

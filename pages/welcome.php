@@ -2,7 +2,7 @@
 include("estrutura.php"); 
 include("../user/config.php"); 
 $output = ''; 
-$sql = "SELECT * FROM abastecimentos where abastecimentos.reciclagem = 0 and aceite = 0";  
+$sql = "SELECT * FROM abastecimentos where abastecimentos.reciclagem = 0";  
 $result = mysqli_query($link, $sql);
 if(mysqli_num_rows($result) > 0)  
 {  

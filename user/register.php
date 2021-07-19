@@ -321,9 +321,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             <div class="content">
         
-                                <h2>Sign Up</h2>
+                                <h2>Registe um usuario</h2>
         
-                                <p>Please fill this form to create an account.</p>
+                                <p>Por favor preencha o formulario por completo</p>
                             
                             </div> 
     
@@ -333,7 +333,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
               
                                     <label>Username</label>
               
-                                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" placeholder= "put ur username">
+                                    <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" placeholder= "Coloque o username">
             
                                     <span class="help-block"><?php echo $username_err; ?></span>
           
@@ -345,7 +345,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            
                                     <label>Password</label>
             
-                                    <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" placeholder= "put ur password">
+                                    <input type="password" name="password" class="form-control" value="<?php echo $password; ?>" placeholder= "Coloque a password">
              
                                     <span class="help-block"><?php echo $password_err; ?></span>
             
@@ -357,7 +357,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label>Confirm Password</label>
 
-                                    <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>" placeholder= "confirm ur password">
+                                    <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>" placeholder= "Confirme a password">
 
                                     <span class="help-block"><?php echo $confirm_password_err; ?></span>
 
@@ -369,7 +369,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label>adm</label>
 
-                                    <input type="text" name="adm" class="form-control" value="<?php echo $adm; ?>" placeholder="put o for normal user 1 to adms">
+                                    <input type="text" name="adm" class="form-control" value="<?php echo $adm; ?>" placeholder="Coloque o nivel de admin">
 
                                     <span class="help-block"><?php echo $adm_err; ?></span>
 
@@ -381,7 +381,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label>NFC</label>
 
-                                    <input type="text" name="nfc" class="form-control" value="<?php echo $nfc; ?>" placeholder="use the nfc thing">
+                                    <input type="text" name="nfc" class="form-control" value="<?php echo $nfc; ?>" placeholder="Coloque o numero de nfc">
 
                                     <span class="help-block"><?php echo $nfc_err; ?></span>
 
@@ -391,9 +391,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                 <div class="form-group">
 
-                                    <input type="submit" class="button button-primary button-outline" value="Submit">
+                                    <input type="submit" class="button button-primary button-outline" value="Enviar">
 
-                                    <input type="reset" class="button button-primary button-outline" value="Reset">
+                                    <input type="reset" class="button button-primary button-outline" value="Resetar">
 
                                 </div>
 

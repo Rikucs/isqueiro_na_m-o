@@ -59,16 +59,16 @@
       fetch_data();  
       $(document).on('click', '#btn_add', function(){  
            var nome = $('#nome').text();  
-           var mostrar = $('#mostrar').text();
+           var Horas = $('#Horas').text();
     
            if(nome == '')  
            {  
-                alert("Enter the Name");  
+                alert("Coloque o Name");  
                 return false;  
            }  
-           if(mostrar == '')  
+           if(Horas == '')  
            {  
-                alert("Enter the mostrar");  
+                alert("Coloque as Horas");  
                 return false;  
            }
            
@@ -76,7 +76,7 @@
            $.ajax({  
                 url:"insert.php",  
                 method:"POST",  
-                data:{nome:nome, mostrar:mostrar},  
+                data:{nome:nome, Horas:Horas},  
                 dataType:"text",  
                 success:function(data)  
                 {  
@@ -102,10 +102,10 @@
            var nome = $(this).text();  
            edit_data(id_obras, nome, "nome");  
       });  
-      $(document).on('blur', '.mostrar', function(){  
+      $(document).on('blur', '.Horas', function(){  
            var id_obras = $(this).data("id2");  
-           var mostrar = $(this).text();  
-           edit_data(id_obras,mostrar, "mostrar");  
+           var Horas = $(this).text();  
+           edit_data(id_obras,Horas, "Horas");  
       });
         
   

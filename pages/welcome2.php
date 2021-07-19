@@ -10,7 +10,7 @@ session_start();
 
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     
-    header("location: ../index.php");
+    //header("location: ../index.php");
    
     exit;
 
@@ -24,6 +24,33 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // Include config file
 
 require_once "../user/config.php";
+
+$query = "SELECT id_maquinas, Nome FROM maquinas";
+$result = mysqli_query($link, $query);
+$opcoes = "";	 
+
+while($row = mysqli_fetch_array($result))
+{
+   $opcoes = $opcoes."<option>$row[0] - $row[1]";
+}
+$query = "SELECT id_obras, nome FROM obras";
+$result = mysqli_query($link, $query);
+$opcoes1 = "";	 
+
+while($row = mysqli_fetch_array($result))
+{
+   $opcoes1 = $opcoes1."<option>$row[0] - $row[1]";
+}
+
+$query = "SELECT id_combustiveis, NOME FROM combustiveis";
+$result = mysqli_query($link, $query);
+$opcoes2 = "";	 
+
+while($row = mysqli_fetch_array($result))
+{
+   $opcoes2 = $opcoes2."<option>$row[0] - $row[1]";
+}
+ 
  
 // Define variables and initialize with empty values
 
@@ -37,7 +64,7 @@ $adata_err = $maquina_err = $obra_err = $combustivel_err = $litros_err = $km_err
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     
-    if(empty(trim($_POST["adata"])) || empty(trim($_POST["maquina"])) || empty(trim($_POST["obra"])) || empty(trim($_POST["combustivel"])) || empty(trim($_POST["litros"])) || empty(trim($_POST["km"])) || empty(trim($_POST["horas"])) || empty(trim($_POST["assinatura"]))){
+    if(empty(trim($_POST["adata"])) || empty(trim($_POST["maquina"])) || empty(trim($_POST["obra"])) || empty(trim($_POST["combustivel"])) || empty(trim($_POST["litros"])) || empty(trim($_POST["km"])) || empty(trim($_POST["horas"]))){
      
         $adata_err = "Coloque a data";
         $maquina_err = "Coloque a maquina.";
@@ -46,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $litros_err = "Coloque os litros"; 
         $km_err = "Coloque os kms";
         $horas_err = "Coloque as horas";
-        $assinatura_err = "Coloque a assinatura";      
+            
    
     } else{       
        
@@ -58,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $litros = trim($_POST["litros"]);
         $km = trim($_POST["km"]);
         $horas = trim($_POST["horas"]);
-        $assinatura = trim($_POST["assinatura"]);
+        
    
     }  
     
@@ -66,13 +93,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         
         // Prepare an insert statement
        
-        $sql = "INSERT INTO abastecimentos ( adata, maquina, obra, combustivel, litros, km, horas, assinatura, aceite) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO abastecimentos ( adata, maquina, obra, combustivel, litros, km, horas, assinatura) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
            
             // Bind variables to the prepared statement as parameters
            
-            mysqli_stmt_bind_param($stmt, "sssssssss", $param_adata, $param_maquina, $param_obra, $param_combustivel, $param_litros, $param_km, $param_horas, $param_assinatura, $param_aceite);
+            mysqli_stmt_bind_param($stmt, "ssssssss", $param_adata, $param_maquina, $param_obra, $param_combustivel, $param_litros, $param_km, $param_horas, $param_assinatura);
                      
             // Set parameters
             
@@ -92,15 +119,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             $param_horas = $horas;
             
-            $param_assinatura = $assinatura;
+            $param_assinatura = htmlspecialchars($_SESSION["username"]);
 
-            $param_aceite = 0;
+            
          
             if(mysqli_stmt_execute($stmt)){
           
                 // Redirect to login page
-          
-                header("location: ../index.php");
+                echo "<script> alert('inserido com sucesso')</scritp>";
+                echo $horas;
+               // header("location: ../index.php");
           
             } else{
            
@@ -120,7 +148,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
   
     mysqli_close($link);
-    header("location: ../user/logout.php");
+   // header("location: ../user/logout.php");
     exit;
 }
 
@@ -221,9 +249,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <div class="form-group <?php echo (!empty($maquina_err)) ? 'has-error' : ''; ?>">
            
                                     <label>maquina</label>
-            
-                                    <input type="maquina" name="maquina" class="form-control" value="<?php echo $maquina; ?>" placeholder= "escolha a maquina">
-             
+                                    <select  class="form-control select2" name="maquina" required>
+                                        <option hidden></option>
+                                        <?php echo $opcoes; ?>
+                                    </select>
                                     <span class="help-block"><?php echo $maquina_err; ?></span>
             
                                 </div>
@@ -234,8 +263,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label>Obra</label>
 
-                                    <input type="text" name="obra" class="form-control" value="<?php echo $obra; ?>" placeholder="Escolha a obra">
-
+                                    <select class="form-control select2" name="obra" required>
+                                        <option hidden></option>
+                                            <?PHP ECHO $opcoes1; ?>
+                                    </select></td>
                                     <span class="help-block"><?php echo $obra_err; ?></span>
 
                                 </div>
@@ -246,8 +277,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label>Combustivel</label>
 
-                                    <input type="text" name="combustivel" class="form-control" value="<?php echo $combustivel; ?>" placeholder="use the combustivel thing">
-
+                                    <select class="form-control select2" name="combustivel" required>
+                                        <option hidden></option>
+                                        <?php echo $opcoes2; ?>
+                                    </select>
                                     <span class="help-block"><?php echo $combustivel_err; ?></span>
 
                                 </div>
@@ -258,7 +291,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label>Litros</label>
 
-                                    <input type="text" name="litros" class="form-control" value="<?php echo $litros; ?>" placeholder="use the litros thing">
+                                    <input type="text" name="litros" class="form-control" value="<?php echo $litros; ?>" placeholder="Coloque os litros">
 
                                     <span class="help-block"><?php echo $litros_err; ?></span>
 
@@ -282,21 +315,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                     <label>Horas</label>
 
-                                    <input type="text" name="horas" class="form-control" value="<?php echo $horas; ?>" placeholder="Em quanto tempo">
+                                    <input type="text" name="horas" class="form-control" value="<?php echo $horas; ?>" placeholder="Em quantas horas">
 
                                     <span class="help-block"><?php echo $horas_err; ?></span>
-
-                                </div>
-
-                                <br/>
-
-                                <div class="form-group <?php echo (!empty($assinatura_err)) ? 'has-error' : ''; ?>">
-
-                                    <label>Assinatura</label>
-
-                                    <input type="text" name="assinatura" class="form-control" value="<?php echo $assinatura; ?>" placeholder="Assine aqui">
-
-                                    <span class="help-block"><?php echo $assinatura_err; ?></span>
 
                                 </div>
 
@@ -361,6 +382,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script src="../assets/js/main.js"></script>  
 
+    
 </body>
 
 </html>

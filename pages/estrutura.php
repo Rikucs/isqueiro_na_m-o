@@ -61,7 +61,7 @@ if(!isset($_SESSION["adm"])){
 
                     <!-- Header Logo (Header Left) Start -->
                     <div class="header-logo col-auto">
-                        <a href="../index.html">
+                        <a href="../index.php">
                             <img src="../assets/images/logo/logo.png" alt="" style="width:64px ; height:64px;" >
                             <img src="../assets/images/logo/logo-light.png" class="logo-light" alt=""
                             style="width:64px ; height:64px;">
@@ -173,6 +173,8 @@ if(!isset($_SESSION["adm"])){
                         <li><a href="../users/user.php"><i class="fa fa-users"></i> <span>Users</span></a>
 
                         </li>
+                        <li><a href="../user/register.php"><i class="fa fa-users"></i> <span>Registar User</span></a></li>
+
                     </ul>
                 </nav>
 

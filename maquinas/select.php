@@ -72,8 +72,9 @@ include("../user/config.php");
                          <td class="h" data-id6="'.$row["id_maquinas"].'" contenteditable>'.$row["h"].'</td>
                          <td class="km_iniciais" data-id7="'.$row["id_maquinas"].'" contenteditable>'.$row["km_iniciais"].'</td>  
                          <td class="h_iniciais" data-id8="'.$row["id_maquinas"].'" contenteditable>'.$row["h_iniciais"].'</td>
-                         <td class="observacoes" data-id9="'.$row["id_maquinas"].'" contenteditable>'.$row["observacoes"].'</td>          
+                         <td class="observacoes" data-id9="'.$row["id_maquinas"].'" contenteditable>'.$row["observacoes"].'</td>               
                          <td>
+                         <a class="view button button-box button-xs button-primary" href="consumo.php?maquina='.$row["id_maquinas"].'""><i class="zmdi zmdi-more"></i></a>
                          <button type="button" name="delete_btn" data-id10="'.$row["id_maquinas"].'" class="btn btn-xs btn-danger btn_delete">Apagar</button>
                          </td>  
                     </tr>  

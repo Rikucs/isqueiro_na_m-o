@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty(trim($_POST["nfc"]))){
 
-        $nfc_err = "Please use the nfc.";
+        $nfc_err = "Passe o nfc na maquina.";
 
        } else{
         
@@ -73,12 +73,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $nfc = trim($_POST["nfc"]);               
                 } else{
                   
-                    $nfc_err = "This nfc don´t exist.";
+                    $nfc_err = "O nfc não existe.";
                 
                 }
             } else{
          
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Alguma coisa correu mal tente mais tarde.";
         
             }
 
