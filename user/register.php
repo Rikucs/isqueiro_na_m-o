@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty(trim($_POST["username"]))){
      
-        $username_err = "Please enter a username.";
+        $username_err = "Coloque o username.";
    
     } else{
         
@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
                  
-                    $username_err = "This username is already taken.";
+                    $username_err = "Este username está em uso.";
                
                 } else{
                   
@@ -82,7 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             } else{
          
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Algo correu mal. Tente mais tarde";
         
             }
        
@@ -98,11 +98,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty(trim($_POST["password"]))){
     
-        $password_err = "Please enter a password.";     
+        $password_err = "Coloque a password.";     
    
     } elseif(strlen(trim($_POST["password"])) < 6){
     
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "A password tem de ter no minimo 6 characteres.";
     
     } else{
     
@@ -114,7 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty(trim($_POST["confirm_password"]))){
     
-        $confirm_password_err = "Please confirm password.";     
+        $confirm_password_err = "Confirme a password.";     
     
     } else{
    
@@ -122,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
         if(empty($password_err) && ($password != $confirm_password)){
     
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err = "As passwords não são iguais.";
     
         }
    
@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(trim($_POST["adm"]) >1){
     
-        $adm_err = "Adm can only be 0 or 1.";
+        $adm_err = "Adm so pode ser 1 e 0.";
     
     } else{
     
@@ -170,7 +170,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
                  
-                    $nfc_err = "This NFC is already taken.";
+                    $nfc_err = "Este nfc ja ta em uso.";
                
                 } else{
                   
@@ -179,7 +179,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
             } else{
          
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Algo correu mal, tente mais tarde.";
         
             }
        
