@@ -20,16 +20,15 @@ $pdf->Cell(190,10,utf8_decode('Relatório de cadastros'),0,0,"C");
 $pdf->Ln(15);
 
 $pdf->SetFont("Arial","I",10);
-$pdf->Cell(20,7,"id",1,0,"C");
 $pdf->Cell(100,7,"Nome",1,0,"C");
+$pdf->Cell(75,7,"Horas",1,0,"C");
 
 
 $pdf->Ln();
     
     foreach ($obras as $obras){
-    	$pdf->Cell(20,7,$obras["id_obras"],1,0,"C");
     	$pdf->Cell(100,7,utf8_decode($obras["nome"]),1,0,"C");
-
+		$pdf->Cell(75,7,utf8_decode($obras["Horas"]),1,0,"C");
     	$pdf->Ln();
 	}
 

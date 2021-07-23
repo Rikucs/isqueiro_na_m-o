@@ -260,7 +260,7 @@ mysqli_close($link);
                             <div class="content">
                                 <h2>Login</h2>
         
-                                <p>Please use   your NFC to login.</p>
+                                <p>Use o seu cartão nfc para entrar </p>
 
                             </div>
         

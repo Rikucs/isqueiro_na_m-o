@@ -40,7 +40,10 @@ include("../user/config.php");
                     <td>'.$row["id_obras"].'</td>  
                     <td class="nome" data-id1="'.$row["id_obras"].'" contenteditable>'.$row["nome"].'</td>  
                     <td class="Horas" data-id2="'.$row["id_obras"].'" contenteditable>'.$row["Horas"].'</td>
-                    <td><button type="button" name="delete_btn" data-id3="'.$row["id_obras"].'" class="btn btn-xs btn-danger btn_delete">Apagar</button></td>  
+                    <td>
+                    <a class="view button button-box button-xs button-primary" href="consumo.php?obras='.$row["id_obras"].'""><i class="zmdi zmdi-more"></i></a>
+                    <button type="button" name="delete_btn" data-id3="'.$row["id_obras"].'" class="btn btn-xs btn-danger btn_delete">Apagar</button>
+                    </td>  
                </tr>  
           ';    
           }  

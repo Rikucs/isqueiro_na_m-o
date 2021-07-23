@@ -8,26 +8,18 @@ include("../user/config.php");
 // Guardar Cenas da tabela maquinas -------------------------------------------------------------------------
 
 
-$maquina = $_GET["maquina"];
-$sql = "SELECT * FROM maquinas 
-     INNER JOIN  combustiveis ON maquinas.combustivel = combustiveis.id_combustiveis
-     where id_maquinas = '".$_GET["maquina"]."'
-     ORDER BY id_maquinas DESC";
+$obras = $_GET["obras"];
+$sql = "SELECT * FROM obras 
+     where id_obras = '".$_GET["obras"]."'
+     ORDER BY id_obras DESC";
 $result = mysqli_query($link, $sql);
 if(mysqli_num_rows($result) > 0){
 
     while($row = mysqli_fetch_array($result)){ 
 
-        $id = $row["id_maquinas"];
-        $Nome = $row["Nome"];
-        $matricula = $row["matricula"];
-        $NOME = $row["NOME"];  
-        $ano = $row["ano"];
-        $km =  $row["km"];
-        $h = $row["h"];
-        $km_iniciais =$row["km_iniciais"]; 
-        $h_iniciais = $row["h_iniciais"];
-        $obrservacoes = $row["observacoes"];        
+        $id = $row["id_obras"];
+        $nome = $row["nome"]; 
+        $Horas = $row["Horas"];        
         
     }
 
@@ -36,30 +28,25 @@ if(mysqli_num_rows($result) > 0){
     echo "Oops! Something went wrong. Please try again later.";
 }
 
-$sql = "SELECT SUM(horas) AS horas FROM abastecimentos where maquina = '".$_GET["maquina"]."' ";
-$result = mysqli_query($link, $sql);
-$row_contar = mysqli_fetch_assoc($result); 
-$contagemH = $row_contar['horas'];
-
-
-$sql = "SELECT SUM(litros) AS litros FROM abastecimentos where maquina = '".$_GET["maquina"]."' ";
-$result = mysqli_query($link, $sql);
-$row_contar = mysqli_fetch_assoc($result); 
-$contagemL = $row_contar['litros'];
-
-//Media Registros ----------------------------------------------------------------------------------------
-
-$media = $contagemL / $contagemH ;
-
-//Menor Registro ----------------------------------------------------------------------------------------
-
-
-$sql= "SELECT MIN(litros) AS menorregistro FROM abastecimentos where maquina = '".$maquina."'";
+$sql = "SELECT * FROM abastecimentos 
+INNER JOIN obras ON abastecimentos.obra = obras.id_obras
+INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
+INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
+where abastecimentos.reciclagem = 0 AND obra = ".$obras."
+ORDER BY id_abastecimentos DESC";
 $result = mysqli_query($link, $sql);
 if(mysqli_num_rows($result) > 0){
 
     while($row = mysqli_fetch_array($result)){ 
-        $mlitros = $row["menorregistro"];
+
+        $id_abastecimento = $row["id_obras"];
+        $data = $row["adata"]; 
+        $maquina = $row["Nome"];
+        $obra = $row["nome"];
+        $combustivel = $row["NOME"]; 
+        $litros = $row["litros"];
+        $km = $row["km"];
+        $horas = $row["horas"];         
         
     }
 
@@ -69,22 +56,7 @@ if(mysqli_num_rows($result) > 0){
 }
 
 
-// Maior Registro ------------------------------------------------------------------------------------------
 
-
-$sql= "SELECT Max(litros) AS maiorregistro FROM abastecimentos where maquina = '".$maquina."'";
-$result = mysqli_query($link, $sql);
-if(mysqli_num_rows($result) > 0){
-
-    while($row = mysqli_fetch_array($result)){ 
-        $Mlitros = $row["maiorregistro"];
-        
-    }
-
-}else{
-
-    echo "Oops! Something went wrong. Please try again later.";
-}
 
 ?>
 
@@ -101,7 +73,7 @@ if(mysqli_num_rows($result) > 0){
     <!--Invoice Head Start-->
     <div class="col-12 mb-30">
         <div class="invoice-head">
-            <h2 class="fw-700 mb-15"><?php Echo $Nome; ?></h2>
+            <h2 class="fw-700 mb-15"><?php Echo $obra; ?></h2>
             <hr>
             <div class="d-flex justify-content-between row mbn-20">
                 <!--Invoice Form-->
@@ -115,11 +87,11 @@ if(mysqli_num_rows($result) > 0){
                 </div>
                 <!--Invoice To-->
                 <div class="text-left text-sm-right col-12 col-sm-auto mb-20">
-                    <h4 class="fw-600"><?php Echo $matricula; ?></h4>
+                    <h4 class="fw-600"></h4>
                     <p>
-                        <?php Echo $Mlitros; ?>  L  <br>
-                        <?php Echo $mlitros; ?>  L  <br>
-                        <?php Echo $media; ?> km/H  <br>
+                          L  <br>
+                          L  <br>
+                         km/H  <br>
                </p>
                     
                 </div>
@@ -137,8 +109,8 @@ if(mysqli_num_rows($result) > 0){
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
  INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
  INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
- where abastecimentos.maquina = '".$maquina."'
- ORDER BY id_abastecimentos DESC";  
+ where abastecimentos.reciclagem = 0 AND obra = ".$obras."
+ ORDER BY id_abastecimentos DESC"; 
  $result = mysqli_query($link, $sql);
  
  ?>
@@ -147,7 +119,10 @@ if(mysqli_num_rows($result) > 0){
 
                     <tr>
                         
-                        <th class="text-center"><span>Nome</span></th>
+                        <th class="text-center"><span>Data</span></th>
+                        <th class="text-center"><span>Maquina</span></th>
+                        <th class="text-center"><span>Obra</span></th>
+                        <th class="text-center"><span>Combustivel</span></th>
                         <th class="text-center"><span>Litros</span></th>
                         <th class="text-center"><span>Horas</span></th>
                     </tr>
@@ -159,9 +134,14 @@ if(mysqli_num_rows($result) > 0){
                         
                     ?>
                     <tr>
+                        <td align="center" ><?php echo $row["adata"]?></td>
                         <td align="center" ><?php echo $row["Nome"]?></td>
-                        <td align="center" ><?php echo $row["litros"]?></td>
+                        <td align="center"><?php echo $row["nome"]?></td>
+                        <td align="center"><?php echo $row["NOME"]?></td>
+                        <td align="center"><?php echo $row["litros"]?></td>
                         <td align="center"><?php echo $row["horas"]?></td>
+                        
+       
                     </tr>
                     <?php } ?>
                 </tbody>
@@ -173,10 +153,10 @@ if(mysqli_num_rows($result) > 0){
     <!--Invoice Total Start-->
     <div class="col-12 d-flex justify-content-end mb-15">
         <div class="text-right">
-            <h6>Total Litros: <?php echo $contagemL ?> </h6>
-            <h6>Total Horas: <?php echo $contagemH ?> </h6>
+            <h6>Total Litros:  </h6>
+            <h6>Total Horas:  </h6>
             <hr class="mb-10">
-            <h3 class="fw-600 mb-0">Media Total: <?php echo $media ?></h3>
+            <h3 class="fw-600 mb-0">Media Total: </h3>
         </div>
     </div>
     <!--Invoice Total Start-->

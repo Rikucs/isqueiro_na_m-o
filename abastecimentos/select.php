@@ -107,5 +107,4 @@ if(isset($_GET["reciclagem"]) == 1){
      }
  $output .= '</table>  
       </div>';  
- echo $output;  
- ?>
+ echo $output;
