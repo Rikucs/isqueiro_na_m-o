@@ -10,5 +10,4 @@ if(mysqli_query($link, $sql))
  {  
       echo 'Data recovered';
  
- }  
- ?>  
+ }

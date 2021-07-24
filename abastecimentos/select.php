@@ -1,51 +1,47 @@
-<?php  
+<?php
 include("../user/config.php");
- $output = ''; 
+$output = '';
 
- $query = "SELECT id_maquinas, Nome FROM maquinas";
- $result = mysqli_query($link, $query);
- $opcoes = "";	 
+$query = "SELECT id_maquinas, Nome FROM maquinas";
+$result = mysqli_query($link, $query);
+$opcoes = "";
 
- while($row = mysqli_fetch_array($result))
-{
-	$opcoes = $opcoes."<option>$row[0] - $row[1]";
+while ($row = mysqli_fetch_array($result)) {
+     $opcoes = $opcoes . "<option>$row[0] - $row[1]";
 }
 $query = "SELECT id_obras, nome FROM obras";
 $result = mysqli_query($link, $query);
-$opcoes1 = "";	 
+$opcoes1 = "";
 
-while($row = mysqli_fetch_array($result))
-{
-    $opcoes1 = $opcoes1."<option>$row[0] - $row[1]";
-} $query = "SELECT id_combustiveis, NOME FROM combustiveis";
-$result = mysqli_query($link, $query);
-$opcoes2 = "";	 
-
-while($row = mysqli_fetch_array($result))
-{
-    $opcoes2 = $opcoes2."<option>$row[0] - $row[1]";
+while ($row = mysqli_fetch_array($result)) {
+     $opcoes1 = $opcoes1 . "<option>$row[0] - $row[1]";
 }
-if(isset($_GET["reciclagem"]) == 1){
- $sql = "SELECT * FROM abastecimentos 
+$query = "SELECT id_combustiveis, NOME FROM combustiveis";
+$result = mysqli_query($link, $query);
+$opcoes2 = "";
+
+while ($row = mysqli_fetch_array($result)) {
+     $opcoes2 = $opcoes2 . "<option>$row[0] - $row[1]";
+}
+if (isset($_GET["reciclagem"]) == 1) {
+     $sql = "SELECT * FROM abastecimentos 
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
  INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
  INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
  where abastecimentos.reciclagem = 1 
- ORDER BY id_abastecimentos DESC";  
- 
-}else{
+ ORDER BY id_abastecimentos DESC";
+} else {
 
- $sql = "SELECT * FROM abastecimentos 
+     $sql = "SELECT * FROM abastecimentos 
  INNER JOIN obras ON abastecimentos.obra = obras.id_obras
  INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
  INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
  where abastecimentos.reciclagem = 0 
- ORDER BY id_abastecimentos DESC";  
- 
+ ORDER BY id_abastecimentos DESC";
 }
- $result = mysqli_query($link, $sql);
-  
- $output .= '  
+$result = mysqli_query($link, $sql);
+
+$output .= '  
      
 
       <div class="table-responsive">  
@@ -61,50 +57,47 @@ if(isset($_GET["reciclagem"]) == 1){
                      <th width="11%">Horas</th> 
                      <th width="11%">Assinatura</th> 
                      <th width="6%">Actions</th>  
-                </tr>';  
- if(mysqli_num_rows($result) > 0)  
- {  
-      while($row = mysqli_fetch_array($result))  
-      { 
-        if(isset($_GET["reciclagem"]) == 1){ 
-           $output .= '  
+                </tr>';
+if (mysqli_num_rows($result) > 0) {
+     while ($row = mysqli_fetch_array($result)) {
+          if (isset($_GET["reciclagem"]) == 1) {
+               $output .= '  
                 <tr>  
-                     <td>'.$row["id_abastecimentos"].'</td>  
-                     <td class="adata" data-id1="'.$row["id_abastecimentos"].'" >'.$row["adata"].'</td>  
-                     <td class="maquina" data-id2="'.$row["id_abastecimentos"].'" contenteditable>'.$row["Nome"].'</td>
-                     <td class="obra" data-id3="'.$row["id_abastecimentos"].'" contenteditable>'.$row["nome"].'</td>
-                     <td class="combustivel" data-id4="'.$row["id_abastecimentos"].'" contenteditable>'.$row["NOME"].'</td>
-                     <td class="litros" data-id5="'.$row["id_abastecimentos"].'" contenteditable>'.$row["litros"].'</td>  
-                     <td class="km" data-id6="'.$row["id_abastecimentos"].'" contenteditable>'.$row["km"].'</td>
-                     <td class="horas" data-id7="'.$row["id_abastecimentos"].'" contenteditable>'.$row["horas"].'</td>  
-                     <td class="assinatura" data-id8="'.$row["id_abastecimentos"].'" contenteditable>'.$row["assinatura"].'</td>
+                     <td>' . $row["id_abastecimentos"] . '</td>  
+                     <td class="adata" data-id1="' . $row["id_abastecimentos"] . '" >' . $row["adata"] . '</td>  
+                     <td class="maquina" data-id2="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["Nome"] . '</td>
+                     <td class="obra" data-id3="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["nome"] . '</td>
+                     <td class="combustivel" data-id4="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["NOME"] . '</td>
+                     <td class="litros" data-id5="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["litros"] . 'L</td>  
+                     <td class="km" data-id6="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["km"] . ' KM</td>
+                     <td class="horas" data-id7="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["horas"] . ' H</td>  
+                     <td class="assinatura" data-id8="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["assinatura"] . '</td>
                      <td>
-                        <button type="button" name="delete_btn" data-id9="'.$row["id_abastecimentos"].'" class="btn btn-xs btn-danger btn_delete">Delete</button>
-                        <button type="button" name="btn_res" id="btn_res" data-id10="'.$row["id_abastecimentos"].'" class="btn btn-xs btn-success btn_res ">Restaurar</button>
+                        <button type="button" name="delete_btn" data-id9="' . $row["id_abastecimentos"] . '" class="btn btn-xs btn-danger btn_delete">Delete</button>
+                        <button type="button" name="btn_res" id="btn_res" data-id10="' . $row["id_abastecimentos"] . '" class="btn btn-xs btn-success btn_res ">Restaurar</button>
                      </td>
 
                 </tr>  
            ';
-           
-        }else{
-           $output .= '  
+          } else {
+               $output .= '  
                 <tr>  
-                     <td>'.$row["id_abastecimentos"].'</td>  
-                     <td class="adata" data-id1="'.$row["id_abastecimentos"].'" >'.$row["adata"].'</td>  
-                     <td class="maquina" data-id2="'.$row["id_abastecimentos"].'" contenteditable>'.$row["Nome"].'</td>
-                     <td class="obra" data-id3="'.$row["id_abastecimentos"].'" contenteditable>'.$row["nome"].'</td>
-                     <td class="combustivel" data-id4="'.$row["id_abastecimentos"].'" contenteditable>'.$row["NOME"].'</td>
-                     <td class="litros" data-id5="'.$row["id_abastecimentos"].'" contenteditable>'.$row["litros"].'</td>  
-                     <td class="km" data-id6="'.$row["id_abastecimentos"].'" contenteditable>'.$row["km"].'</td>
-                     <td class="horas" data-id7="'.$row["id_abastecimentos"].'" contenteditable>'.$row["horas"].'</td>  
-                     <td class="assinatura" data-id8="'.$row["id_abastecimentos"].'" contenteditable>'.$row["assinatura"].'</td>
+                     <td>' . $row["id_abastecimentos"] . '</td>  
+                     <td class="adata" data-id1="' . $row["id_abastecimentos"] . '" >' . $row["adata"] . '</td>  
+                     <td class="maquina" data-id2="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["Nome"] . '</td>
+                     <td class="obra" data-id3="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["nome"] . '</td>
+                     <td class="combustivel" data-id4="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["NOME"] . '</td>
+                     <td class="litros" data-id5="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["litros"] . 'L</td>  
+                     <td class="km" data-id6="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["km"] . 'Km</td>
+                     <td class="horas" data-id7="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["horas"] . 'H</td>  
+                     <td class="assinatura" data-id8="' . $row["id_abastecimentos"] . '" contenteditable>' . $row["assinatura"] . '</td>
          
-                     <td><button type="button" name="delete_btn" data-id9="'.$row["id_abastecimentos"].'" class="btn btn-xs btn-danger btn_delete">Apagar</button></td>  
+                     <td><button type="button" name="delete_btn" data-id9="' . $row["id_abastecimentos"] . '" class="btn btn-xs btn-danger btn_delete">Apagar</button></td>  
                 </tr>  
            ';
           }
-        }     
      }
- $output .= '</table>  
-      </div>';  
- echo $output;
+}
+$output .= '</table>  
+      </div>';
+echo $output;

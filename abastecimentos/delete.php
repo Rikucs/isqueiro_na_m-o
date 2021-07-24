@@ -15,5 +15,4 @@ if(isset($_GET["reciclagem"]) == '1'){
 
  {  
       echo 'Data Deleted';  
- }  
- ?>
+ }

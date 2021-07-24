@@ -18,4 +18,4 @@ include("../user/config.php");
  echo $maquinas;
  echo $obras;
  echo $combustivels;
- ?> 
+?>

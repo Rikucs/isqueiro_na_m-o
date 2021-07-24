@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
     INNER JOIN combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis 
     where abastecimentos.reciclagem = 0 
     AND abastecimentos.adata BETWEEN '$data1' AND '$data2' 
-    AND obra = " . $_GET["obras"] . "
+    AND assinatura = '" . $_GET["user"] . "'
     ORDER BY id_abastecimentos DESC"
     );
 
@@ -33,11 +33,11 @@ if (isset($_POST["submit"])) {
         </div>
         <div class="box">
             <div class="box-head">
-                <h3 class="title"> Obras entre <?php echo $data1; ?> e <?php echo $data2; ?></h3></br>
-                <a href=consumo.php?obras=<?php echo $_GET["obras"]; ?> class="button button-outline button-primary">Colocar outras datas</a>
-                <a href=consumopdf.php?obras=<?php echo $_GET["obras"]; ?> class="button button-outline button-primary">PDF</a>
+                <h3 class="title"> Abastecimentos do <?php echo $_GET["user"]; ?> entre <?php echo $data1; ?> e <?php echo $data2; ?></h3></br>
+                <a href=consumo.php?user=<?php echo $_GET["user"]; ?> class="button button-outline button-primary">Colocar outras datas</a>
+                <a href=consumopdf.php?user=<?php echo $_GET["user"]; ?> class="button button-outline button-primary">PDF</a>
                 <?php echo str_repeat('&nbsp;', 155); ?>
-                <a class="button button-outline button-secondary" href="obras.php">Voltar</a>
+                <a class="button button-outline button-secondary" href="user.php">Voltar</a>
                 <div class="row justify-content-between align-items-center mb-10">
 
                 </div>
@@ -137,7 +137,7 @@ if (isset($_POST["submit"])) {
                                     <div class="form-group">
 
                                         <input type="submit" name="submit" id="submit" class="button button-primary button-outline" value="Confirmar">
-                                        <a class="button button-outline button-secondary" href="obras.php">Voltar</a>
+                                        <a class="button button-outline button-secondary" href="user.php">Voltar</a>
                                     </div>
 
                                 </form>

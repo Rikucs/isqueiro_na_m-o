@@ -53,6 +53,7 @@ $result = mysqli_query($link, $sql);
                     <td class="nfc" data-id4="'.$row["id_user"].'" contenteditable>'.$row["nfc"].'</td>
    
                     <td>
+                    <a class="view button button-box button-xs button-primary" href="consumo.php?user='.$row["username"].'""><i class="zmdi zmdi-more"></i></a>
                     <button type="button" name="delete_btn" data-id5="'.$row["id_user"].'" class="btn btn-xs btn-danger btn_delete">Apagar</button>
                     </td>  
                </tr>  
@@ -62,5 +63,4 @@ $result = mysqli_query($link, $sql);
  }  
  $output .= '</table>  
       </div>';  
- echo $output;  
- ?>
+ echo $output;

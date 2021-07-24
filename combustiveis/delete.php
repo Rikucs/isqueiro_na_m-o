@@ -12,5 +12,4 @@ if(isset($_GET["reciclagem"]) == '1'){
  if(mysqli_query($link, $sql))  
  {  
       echo 'Data Deleted';  
- }  
- ?>
+ }

@@ -3,200 +3,191 @@
 // Initialize the session
 
 session_start();
- 
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
 
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-   
-    if(!isset($_SESSION["adm"])){
-	
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+
+    if (!isset($_SESSION["adm"])) {
+
         header('location:  pages/welcome2.php');
-        
+
         exit;
-    
-    }else{
-    
+    } else {
+
         header("location: pages/welcome.php");
- 
+
         exit;
     }
 }
- 
+
 
 // Include config file
 
 require_once "user/config.php";
- 
+
 
 // Define variables and initialize with empty values
 
-$nfc = $username = $adm="";
+$nfc = $username = $adm = "";
 
 $nfc_err = $username_err = $adm_err = "";
 
 // Processing form data when form is submitted
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Check if username is empty
 
-    if(empty(trim($_POST["nfc"]))){
+    if (empty(trim($_POST["nfc"]))) {
 
         $nfc_err = "Passe o nfc na maquina.";
+    } else {
 
-       } else{
-        
         // Prepare a select statement
-        
+
         $sql = "SELECT id_user FROM users WHERE nfc = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            
+
+        if ($stmt = mysqli_prepare($link, $sql)) {
+
             // Bind variables to the prepared statement as parameters
-            
+
             mysqli_stmt_bind_param($stmt, "s", $param_nfc);
-            
+
             // Set parameters
-            
+
             $param_nfc = trim($_POST["nfc"]);
-            
+
             // Attempt to execute the prepared statement
-            
-            if(mysqli_stmt_execute($stmt)){
-                
+
+            if (mysqli_stmt_execute($stmt)) {
+
                 /* store result */
-               
+
                 mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                 
-                    $nfc = trim($_POST["nfc"]);               
-                } else{
-                  
+
+                if (mysqli_stmt_num_rows($stmt) == 1) {
+
+                    $nfc = trim($_POST["nfc"]);
+                } else {
+
                     $nfc_err = "O nfc não existe.";
-                
                 }
-            } else{
-         
+            } else {
+
                 echo "Oops! Alguma coisa correu mal tente mais tarde.";
-        
             }
+        }
+        if (empty($nfc_err)) {
 
-	}	
-        if(empty($nfc_err)){
+            // Prepare a select statement
 
-        // Prepare a select statement
+            $sql = "SELECT id_user, username, adm, nfc FROM users WHERE nfc = ?";
 
-        $sql = "SELECT id_user, username, adm, nfc FROM users WHERE nfc = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
+            if ($stmt = mysqli_prepare($link, $sql)) {
 
-            // Bind variables to the prepared statement as parameters
+                // Bind variables to the prepared statement as parameters
 
-            mysqli_stmt_bind_param($stmt, "s", $param_nfc);
-            
-            // Set parameters
+                mysqli_stmt_bind_param($stmt, "s", $param_nfc);
 
-            $param_nfc = $nfc;
-            
-            // Attempt to execute the prepared statement
+                // Set parameters
 
-            if(mysqli_stmt_execute($stmt)){
+                $param_nfc = $nfc;
 
-                // Store result
+                // Attempt to execute the prepared statement
 
-                mysqli_stmt_store_result($stmt);
-                
-                // Check if username exists, if yes then verify password
+                if (mysqli_stmt_execute($stmt)) {
 
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                    // Store result
 
-                    // Bind result variables
+                    mysqli_stmt_store_result($stmt);
 
-                    mysqli_stmt_bind_result($stmt, $id, $username, $adm, $nfc);
+                    // Check if username exists, if yes then verify password
 
-                    if(mysqli_stmt_fetch($stmt)){
+                    if (mysqli_stmt_num_rows($stmt) == 1) {
 
-                        
+                        // Bind result variables
 
-                        if($adm == 1){
+                        mysqli_stmt_bind_result($stmt, $id, $username, $adm, $nfc);
 
-                        	// Admin	
+                        if (mysqli_stmt_fetch($stmt)) {
 
-                        	session_start();
-                        	    
-                       		 // Store data in session variables
 
-                            $_SESSION["loggedin"] = true;
 
-                            $_SESSION["id"] = $id;
+                            if ($adm == 1) {
 
-                            $_SESSION["username"] = $username;
+                                // Admin	
 
-                            $_SESSION["adm"] = $adm;                         
-                            
-                            // Redirect adm to welcome page
+                                session_start();
 
-                            header("location: pages/welcome.php");
+                                // Store data in session variables
 
-                        } else{
+                                $_SESSION["loggedin"] = true;
 
-							// Regular user 
-                           	
-                            session_start();
-                            
-                            // Store data in session variables
+                                $_SESSION["id"] = $id;
 
-                            $_SESSION["loggedin"] = true;
+                                $_SESSION["username"] = $username;
 
-                            $_SESSION["id"] = $id;
+                                $_SESSION["adm"] = $adm;
 
-                            $_SESSION["username"] = $username;
-                            	                            	
-                            // Redirect user to welcome page
-                        	header("location: pages/welcome2.php");
-                        	
+                                // Redirect adm to welcome page
+
+                                header("location: pages/welcome.php");
+                            } else {
+
+                                // Regular user 
+
+                                session_start();
+
+                                // Store data in session variables
+
+                                $_SESSION["loggedin"] = true;
+
+                                $_SESSION["id"] = $id;
+
+                                $_SESSION["username"] = $username;
+
+                                // Redirect user to welcome page
+                                header("location: pages/welcome2.php");
+                            }
                         }
-
                     }
-				}
-			}	
-		}	
- 	}
- 	
+                }
+            }
+        }
 
-                       
-                
 
-            
 
-            
 
-// Close statement
-            
-mysqli_stmt_close($stmt);
-        
-        
-    
 
-    
-// Close connection
-    
-mysqli_close($link);
 
-}
+
+
+
+        // Close statement
+
+        mysqli_stmt_close($stmt);
+
+
+
+
+
+        // Close connection
+
+        mysqli_close($link);
+    }
 }
 
 
 ?>
- 
+
 <!DOCTYPE html>
 
 <html lang="en">
 
 <head>
 
-<meta charset="utf-8">
+    <meta charset="utf-8">
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -244,10 +235,10 @@ mysqli_close($link);
 
 </head>
 
-<body class="skin-dark">   
+<body class="skin-dark">
 
     <div class="main-wrapper">
-        
+
         <div class="content-body m-0 p-0">
 
             <div class="login-register-wrap">
@@ -256,87 +247,87 @@ mysqli_close($link);
 
                     <div class="d-flex align-self-center justify-content-center order-2 order-lg-1 col-lg-5 col-12">
 
-                        <div class="login-register-form-wrap">    
+                        <div class="login-register-form-wrap">
                             <div class="content">
                                 <h2>Login</h2>
-        
+
                                 <p>Use o seu cartão nfc para entrar </p>
 
                             </div>
-        
+
                             <div class="login-register-form">
-        
+
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                                
+
                                     <div class="row">
 
                                         <div class="col-12 mb-20">
-        
+
                                             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-        
+
                                                 <label>NFC</label>
-        
-                                                <input type="text" name="nfc" class="form-control" value="<?php echo $nfc; ?>" placeholder="nfc" >
-        
+
+                                                <input type="text" name="nfc" class="form-control" value="<?php echo $nfc; ?>" placeholder="nfc">
+
                                                 <span class="help-block"><?php echo $nfc_err; ?></span>
-        
+
                                             </div>
-        
-                                            <br/>
+
+                                            <br />
 
                                         </div>
 
-                                    </div>       
-        
+                                    </div>
+
                                     <div class="form-group">
-        
+
                                         <input type="submit" class="button button-primary button-outline" value="Login">
                                         <button class="button button-primary button-outline"><a href="user/login.php">Não tem NFC</a> </button>
-        
+
                                     </div>
-        
-        
+
+
                                 </form>
-    
+
                             </div>
                         </div>
-                   
-                    </div> 
-    
-                    <div>
-        
-                        <div class="content">
-    
-                        <img src="img/imglogin.png" alt="Fucking Cat" align="right">
-        
-                        </div>
-        
+
                     </div>
-    
+
+                    <div>
+
+                        <div class="content">
+
+                            <img src="img/imglogin.png" alt="Fucking Cat" align="right">
+
+                        </div>
+
+                    </div>
+
                 </div>
-                   
+
             </div>
-                
+
         </div>
-            
+
     </div>
-        
+
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    
+
     <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
-    
+
     <script src="assets/js/vendor/popper.min.js"></script>
-    
+
     <script src="assets/js/vendor/bootstrap.min.js"></script>
-    
+
     <!--Plugins JS-->
-    
+
     <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    
+
     <script src="assets/js/plugins/tippy4.min.js.js"></script>
-    
+
     <!--Main JS-->
-    
+
     <script src="assets/js/main.js"></script>
 
 

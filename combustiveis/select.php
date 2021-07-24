@@ -28,7 +28,7 @@ include("../user/config.php");
                <tr>  
                      <td>'.$row["id_combustiveis"].'</td>  
                      <td class="NOME" data-id1="'.$row["id_combustiveis"].'" contenteditable>'.$row["NOME"].'</td>  
-                     <td class="preco" data-id2="'.$row["id_combustiveis"].'" contenteditable>'.$row["preco"].'</td>
+                     <td class="preco" data-id2="'.$row["id_combustiveis"].'" contenteditable>'.$row["preco"].' € </td>
         
                      <td>
                      <button type="button" name="delete_btn" data-id3="'.$row["id_combustiveis"].'" class="btn btn-xs btn-danger btn_delete">Delete</button>
@@ -42,7 +42,7 @@ include("../user/config.php");
                <tr>  
                      <td>'.$row["id_combustiveis"].'</td>  
                      <td class="NOME" data-id1="'.$row["id_combustiveis"].'" contenteditable>'.$row["NOME"].'</td>  
-                     <td class="preco" data-id2="'.$row["id_combustiveis"].'" contenteditable>'.$row["preco"].'</td>
+                     <td class="preco" data-id2="'.$row["id_combustiveis"].'" contenteditable>'.$row["preco"].' €</td>
         
                      <td>
                      <button type="button" name="delete_btn" data-id3="'.$row["id_combustiveis"].'" class="btn btn-xs btn-danger btn_delete">Apagar</button>

@@ -50,10 +50,10 @@ include("../user/config.php");
                           <td class="matricula" data-id2="'.$row["id_maquinas"].'" contenteditable>'.$row["matricula"].'</td>
                           <td class="combustivel" data-id3="'.$row["id_maquinas"].'" contenteditable>'.$row["NOME"].'</td>  
                           <td class="ano" data-id4="'.$row["id_maquinas"].'" contenteditable>'.$row["ano"].'</td>
-				      <td class="km" data-id5="'.$row["id_maquinas"].'" contenteditable>'.$row["km"].'</td>  
-                          <td class="h" data-id6="'.$row["id_maquinas"].'" contenteditable>'.$row["h"].'</td>
-                          <td class="km_iniciais" data-id7="'.$row["id_maquinas"].'" contenteditable>'.$row["km_iniciais"].'</td>  
-                          <td class="h_iniciais" data-id8="'.$row["id_maquinas"].'" contenteditable>'.$row["h_iniciais"].'</td>
+				      <td class="km" data-id5="'.$row["id_maquinas"].'" contenteditable>'.$row["km"].' Km</td>  
+                          <td class="h" data-id6="'.$row["id_maquinas"].'" contenteditable>'.$row["h"].' H</td>
+                          <td class="km_iniciais" data-id7="'.$row["id_maquinas"].'" contenteditable>'.$row["km_iniciais"].' Km</td>  
+                          <td class="h_iniciais" data-id8="'.$row["id_maquinas"].'" contenteditable>'.$row["h_iniciais"].' H</td>
 				      <td class="observacoes" data-id9="'.$row["id_maquinas"].'" contenteditable>'.$row["observacoes"].'</td>          
                           <td>
                           <button type="button" name="delete_btn" data-id10="'.$row["id_maquinas"].'" class="btn btn-xs btn-danger btn_delete">Apagar</button>
@@ -70,10 +70,10 @@ include("../user/config.php");
                          <td class="matricula" data-id2="'.$row["id_maquinas"].'" contenteditable>'.$row["matricula"].'</td>
                          <td class="combustivel" data-id3="'.$row["id_maquinas"].'" contenteditable>'.$row["NOME"].'</td>  
                          <td class="ano" data-id4="'.$row["id_maquinas"].'" contenteditable>'.$row["ano"].'</td>
-                         <td class="km" data-id5="'.$row["id_maquinas"].'" contenteditable>'.$row["km"].'</td>  
-                         <td class="h" data-id6="'.$row["id_maquinas"].'" contenteditable>'.$row["h"].'</td>
-                         <td class="km_iniciais" data-id7="'.$row["id_maquinas"].'" contenteditable>'.$row["km_iniciais"].'</td>  
-                         <td class="h_iniciais" data-id8="'.$row["id_maquinas"].'" contenteditable>'.$row["h_iniciais"].'</td>
+                         <td class="km" data-id5="'.$row["id_maquinas"].'" contenteditable>'.$row["km"].' Km </td>  
+                         <td class="h" data-id6="'.$row["id_maquinas"].'" contenteditable>'.$row["h"].' H</td>
+                         <td class="km_iniciais" data-id7="'.$row["id_maquinas"].'" contenteditable>'.$row["km_iniciais"].' Km</td>  
+                         <td class="h_iniciais" data-id8="'.$row["id_maquinas"].'" contenteditable>'.$row["h_iniciais"].' H</td>
                          <td class="observacoes" data-id9="'.$row["id_maquinas"].'" contenteditable>'.$row["observacoes"].'</td>               
                          <td>
                          <a class="view button button-box button-xs button-primary" href="consumo.php?maquina='.$row["id_maquinas"].'""><i class="zmdi zmdi-more"></i></a>
