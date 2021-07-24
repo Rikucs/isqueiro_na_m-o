@@ -1,217 +1,197 @@
-<?php 
-include("../pages/estrutura.php"); 
-include("../user/config.php"); 
-?>
 <?php
 
+// Include config file
 
-// Guardar Cenas da tabela maquinas -------------------------------------------------------------------------
-
-
-$obras = $_GET["obras"];
-$sql = "SELECT * FROM obras 
-     where id_obras = '".$_GET["obras"]."'
-     ORDER BY id_obras DESC";
-$result = mysqli_query($link, $sql);
-if(mysqli_num_rows($result) > 0){
-
-    while($row = mysqli_fetch_array($result)){ 
-
-        $id = $row["id_obras"];
-        $nome = $row["nome"]; 
-        $Horas = $row["Horas"];        
-        
-    }
-
-}else{
-
-    echo "Oops! Something went wrong. Please try again later.";
-}
-
-$sql = "SELECT * FROM abastecimentos 
-INNER JOIN obras ON abastecimentos.obra = obras.id_obras
-INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
-INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
-where abastecimentos.reciclagem = 0 AND obra = ".$obras."
-ORDER BY id_abastecimentos DESC";
-$result = mysqli_query($link, $sql);
-if(mysqli_num_rows($result) > 0){
-
-    while($row = mysqli_fetch_array($result)){ 
-
-        $id_abastecimento = $row["id_obras"];
-        $data = $row["adata"]; 
-        $maquina = $row["Nome"];
-        $obra = $row["nome"];
-        $combustivel = $row["NOME"]; 
-        $litros = $row["litros"];
-        $km = $row["km"];
-        $horas = $row["horas"];         
-        
-    }
-
-}else{
-
-    echo "Oops! Something went wrong. Please try again later.";
-}
+require_once "../user/config.php";
+include("../pages/estrutura.php");
 
 
+if (isset($_POST["submit"])) {
 
+
+    $data1 = $_POST["data1"];
+    $data1 = date("Y-m-d", strtotime($data1));
+    $data2 = $_POST["data2"];
+    $data2 = date("Y-m-d", strtotime($data2));
+
+    $result = mysqli_query(
+        $link,
+        "SELECT adata,maquinas.Nome, obras.nome, combustiveis.NOME, litros, abastecimentos.km, abastecimentos.horas, assinatura 
+    FROM abastecimentos 
+    INNER JOIN obras ON abastecimentos.obra = obras.id_obras 
+    INNER JOIN maquinas ON abastecimentos.maquina = maquinas.id_maquinas 
+    INNER JOIN combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis 
+    where abastecimentos.reciclagem = 0 
+    AND abastecimentos.adata BETWEEN '$data1' AND '$data2' 
+    AND obra = ".$_GET["obras"]."
+    ORDER BY id_abastecimentos DESC"
+    );
 
 ?>
-
-
-
-
-
-
- <!-- Content Body Start -->
- <div class="content-body">
-
-<div class="row mbn-30">
-
-    <!--Invoice Head Start-->
-    <div class="col-12 mb-30">
-        <div class="invoice-head">
-            <h2 class="fw-700 mb-15"><?php Echo $obra; ?></h2>
-            <hr>
-            <div class="d-flex justify-content-between row mbn-20">
-                <!--Invoice Form-->
-                <div class="text-left col-12 col-sm-auto mb-20">
-                    <h4 class="fw-600">Matricula</h4>
-                    <p>
-                       Maior abastecimento      <br>
-                       Menor abastecimento      <br>
-                       Media de bastecimentos
-                    </p>
-                </div>
-                <!--Invoice To-->
-                <div class="text-left text-sm-right col-12 col-sm-auto mb-20">
-                    <h4 class="fw-600"></h4>
-                    <p>
-                          L  <br>
-                          L  <br>
-                         km/H  <br>
-               </p>
+    <div class="content-body">
+        <div class="row justify-content-between align-items-center mb-10">
+        </div>
+        <div class="box">
+            <div class="box-head">
+                <h3 class="title"> Obras entre <?php echo $data1; ?> e <?php echo $data2; ?></h3>
+                <a href=consumo.php?obras=<?php echo $_GET["obras"]; ?> class="button button-outline button-primary">Colocar outras datas</a>
+                <a class="button button-outline button-secondary" href = "obras.php">Voltar</a>
+                <div class="row justify-content-between align-items-center mb-10">
                     
                 </div>
             </div>
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" cellspacing="0">
+                        <thead>
+                            <tr role="row" class="odd">
+                                <th rowspan="1" colspan="1">ID Processo</th>
+                                <th rowspan="1" colspan="1">ID Tipo Processo</th>
+                                <th rowspan="1" colspan="1">Assunto</th>
+                                <th rowspan="1" colspan="1">Anexo</th>
+                                <th rowspan="1" colspan="1">Ficheiro</th>
+                                <th rowspan="1" colspan="1">Data envio</th>
+                                <th rowspan="1" colspan="1">Data entrega</th>
+                                <th rowspan="1" colspan="1">Requerente</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($row = mysqli_fetch_array($result)) { ?>
+                                <tr>
+
+                                    <td align="center"><?php echo $row["adata"] ?></td>
+                                    <td align="center"><?php echo $row["Nome"] ?></td>
+                                    <td align="center"><?php echo $row["nome"] ?></td>
+                                    <td align="center"><?php echo $row["NOME"] ?></td>
+                                    <td align="center"><?php echo $row["litros"] ?></td>
+                                    <td align="center"><?php echo $row["km"] ?></td>
+                                    <td align="center"><?php echo $row["horas"] ?></td>
+                                    <td align="center"><?php echo $row["assinatura"] ?></td>
+
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-    <!--Invoice Head End-->
 
-    <!--Invoice Details Table Start-->
-    <div class="col-12 mb-30">
-        <div class="table-responsive">
-  <?php          
- 
- $sql = "SELECT * FROM abastecimentos 
- INNER JOIN obras ON abastecimentos.obra = obras.id_obras
- INNER JOIN  maquinas ON abastecimentos.maquina = maquinas.id_maquinas
- INNER JOIN  combustiveis ON abastecimentos.combustivel = combustiveis.id_combustiveis
- where abastecimentos.reciclagem = 0 AND obra = ".$obras."
- ORDER BY id_abastecimentos DESC"; 
- $result = mysqli_query($link, $sql);
- 
- ?>
-      <table class="table table-bordered mb-0">
-                <thead>
+        <div class="row"></div>
+    <?php } ?>
 
-                    <tr>
-                        
-                        <th class="text-center"><span>Data</span></th>
-                        <th class="text-center"><span>Maquina</span></th>
-                        <th class="text-center"><span>Obra</span></th>
-                        <th class="text-center"><span>Combustivel</span></th>
-                        <th class="text-center"><span>Litros</span></th>
-                        <th class="text-center"><span>Horas</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
 
-                        while($row = mysqli_fetch_array($result)){
-                        
-                    ?>
-                    <tr>
-                        <td align="center" ><?php echo $row["adata"]?></td>
-                        <td align="center" ><?php echo $row["Nome"]?></td>
-                        <td align="center"><?php echo $row["nome"]?></td>
-                        <td align="center"><?php echo $row["NOME"]?></td>
-                        <td align="center"><?php echo $row["litros"]?></td>
-                        <td align="center"><?php echo $row["horas"]?></td>
-                        
-       
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+
+
+
+    <?php if (!isset($_POST["submit"])) { ?>
+
+
+
+        <div class="main-wrapper">
+
+            <!-- Content Body Start -->
+
+            <div class="content-body m-0 p-0">
+
+                <div class="login-register-wrap">
+
+                    <div class="row">
+
+                        <div class="d-flex align-self-center justify-content-center order-2 order-lg-1 col-lg-5 col-12">
+
+                            <div class="login-register-form-wrap">
+
+                                <div class="content">
+                                    </br></br></br></br>
+                                    <h2>Escolha as Datas</h2>
+
+
+                                </div>
+                                </br>
+                                <form action="" method="post">
+
+
+                                    <div class="form-group ">
+
+                                        <label>Data Inicio</label>
+                                        <input type="text" name="data1" id='data1' class="form-control input-date-single" required>
+                                        <span class="help-block"></span>
+
+                                    </div>
+
+                                    <br />
+
+                                    <div class="form-group ">
+
+                                        <label>Data Final</label>
+                                        <input type="text" name="data2" id='data2' class="form-control input-date-single" required>
+                                        <span class="help-block"></span>
+
+                                    </div>
+
+                                    <br />
+
+                                    <div class="form-group">
+
+                                        <input type="submit" name="submit" id="submit" class="button button-primary button-outline" value="Confirmar">
+                                        <a class="button button-outline button-secondary" href = "obras.php">Voltar</a>
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+
+                        </div>
+
+                        <div>
+
+                            <div class="content">
+
+                                <img src="../img/656775.png" alt="656775">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-    <!--Invoice Details Table End-->
-
-    <!--Invoice Total Start-->
-    <div class="col-12 d-flex justify-content-end mb-15">
-        <div class="text-right">
-            <h6>Total Litros:  </h6>
-            <h6>Total Horas:  </h6>
-            <hr class="mb-10">
-            <h3 class="fw-600 mb-0">Media Total: </h3>
-        </div>
-    </div>
-    <!--Invoice Total Start-->
-
-    <div class="col-12 mb-15">
-        <hr>
-    </div>
-
-    <!--Invoice Action Button Start-->
-    <div class="col-12 d-flex justify-content-end mb-30">
-        <div class="buttons-group">
-            <a  class="button button-outline button-primary" href = "consumopdf.php?maquina=<?php echo $maquina ?>">Ver em PDF</a>
-            <a class="button button-outline button-secondary" href = "maquinas.php">Voltar</a>
-        </div>
-    </div>
-    <!--Invoice Action Button Start-->
-
-</div>
-
-</div><!-- Content Body End -->
-
-
-
-
-
-
-
-
-
-              
-
-
-              
-              
-
-                   
-        
-	    <!--html Global Vendor, plugins & Activation JS -->
-    <script src="../assets/js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="../assets/js/vendor/jquery-3.3.1.min.js"></script>
-    <script src="../assets/js/vendor/popper.min.js"></script>
-    <script src="../assets/js/vendor/bootstrap.min.js"></script>
-    <!--Plugins JS-->
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/tippy4.min.js.js"></script>
-    <!--Main JS-->
-    <script src="../assets/js/main.js"></script>
- 
-    
-
-	
-	
-
+    <?php } ?>
     <!-- JS
+
 ============================================ -->
 
-</body>
-</html>
+    <!-- Global Vendor, plugins & Activation JS -->
+
+    <script src="../assets/js/vendor/modernizr-3.6.0.min.js"></script>
+
+    <script src="../assets/js/vendor/jquery-3.3.1.min.js"></script>
+
+    <script src="../assets/js/vendor/popper.min.js"></script>
+
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+
+    <!--Plugins JS-->
+
+    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+    <script src="../assets/js/plugins/tippy4.min.js.js"></script>
+
+    <!--Main JS-->
+
+    <script src="../assets/js/main.js"></script>
+
+    <script src="../assets/js/plugins/moment/moment.min.js"></script>
+    <script src="../assets/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="../assets/js/plugins/daterangepicker/daterangepicker.active.js"></script>
+    <script src="../assets/js/plugins/inputmask/bootstrap-inputmask.js"></script>
+    </body>
+
+    </html>
