@@ -1,0 +1,1725 @@
+.button-group {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  
+  .button-group.dropdown {
+    margin-bottom: 5px;
+  }
+  
+  .button-group .button, .button-group .fullcalendar .fc-toolbar .fc-button, .fullcalendar .fc-toolbar .button-group .fc-button, .button-group #toast-container .toast .toast-message .btn, #toast-container .toast .toast-message .button-group .btn, .button-group .dataTables_wrapper .dt-buttons .dt-button, .dataTables_wrapper .dt-buttons .button-group .dt-button, .button-group .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .button-group .btn, .button-group .footable.table tbody tr td.footable-editing .btn-group .btn, .footable.table tbody tr td.footable-editing .btn-group .button-group .btn, .button-group .footable.table tfoot tr.footable-editing td .btn, .footable.table tfoot tr.footable-editing td .button-group .btn, .button-group .smart-wizard .sw-toolbar .sw-btn-group .btn, .smart-wizard .sw-toolbar .sw-btn-group .button-group .btn {
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .button-group .button:first-child, .button-group .fullcalendar .fc-toolbar .fc-button:first-child, .fullcalendar .fc-toolbar .button-group .fc-button:first-child, .button-group #toast-container .toast .toast-message .btn:first-child, #toast-container .toast .toast-message .button-group .btn:first-child, .button-group .dataTables_wrapper .dt-buttons .dt-button:first-child, .dataTables_wrapper .dt-buttons .button-group .dt-button:first-child, .button-group .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn:first-child, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .button-group .btn:first-child, .button-group .footable.table tbody tr td.footable-editing .btn-group .btn:first-child, .footable.table tbody tr td.footable-editing .btn-group .button-group .btn:first-child, .button-group .footable.table tfoot tr.footable-editing td .btn:first-child, .footable.table tfoot tr.footable-editing td .button-group .btn:first-child, .button-group .smart-wizard .sw-toolbar .sw-btn-group .btn:first-child, .smart-wizard .sw-toolbar .sw-btn-group .button-group .btn:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  
+  .button-group .button:last-child, .button-group .fullcalendar .fc-toolbar .fc-button:last-child, .fullcalendar .fc-toolbar .button-group .fc-button:last-child, .button-group #toast-container .toast .toast-message .btn:last-child, #toast-container .toast .toast-message .button-group .btn:last-child, .button-group .dataTables_wrapper .dt-buttons .dt-button:last-child, .dataTables_wrapper .dt-buttons .button-group .dt-button:last-child, .button-group .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn:last-child, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .button-group .btn:last-child, .button-group .footable.table tbody tr td.footable-editing .btn-group .btn:last-child, .footable.table tbody tr td.footable-editing .btn-group .button-group .btn:last-child, .button-group .footable.table tfoot tr.footable-editing td .btn:last-child, .footable.table tfoot tr.footable-editing td .button-group .btn:last-child, .button-group .smart-wizard .sw-toolbar .sw-btn-group .btn:last-child, .smart-wizard .sw-toolbar .sw-btn-group .button-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .button-group .button.dropdown-toggle:not(:first-child), .button-group .fullcalendar .fc-toolbar .dropdown-toggle.fc-button:not(:first-child), .fullcalendar .fc-toolbar .button-group .dropdown-toggle.fc-button:not(:first-child), .button-group #toast-container .toast .toast-message .dropdown-toggle.btn:not(:first-child), #toast-container .toast .toast-message .button-group .dropdown-toggle.btn:not(:first-child), .button-group .dataTables_wrapper .dt-buttons .dropdown-toggle.dt-button:not(:first-child), .dataTables_wrapper .dt-buttons .button-group .dropdown-toggle.dt-button:not(:first-child), .button-group .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .dropdown-toggle.btn:not(:first-child), .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .button-group .dropdown-toggle.btn:not(:first-child), .button-group .footable.table tbody tr td.footable-editing .btn-group .dropdown-toggle.btn:not(:first-child), .footable.table tbody tr td.footable-editing .btn-group .button-group .dropdown-toggle.btn:not(:first-child), .button-group .footable.table tfoot tr.footable-editing td .dropdown-toggle.btn:not(:first-child), .footable.table tfoot tr.footable-editing td .button-group .dropdown-toggle.btn:not(:first-child), .button-group .smart-wizard .sw-toolbar .sw-btn-group .dropdown-toggle.btn:not(:first-child), .smart-wizard .sw-toolbar .sw-btn-group .button-group .dropdown-toggle.btn:not(:first-child) {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .button, .fullcalendar .fc-toolbar .fc-button, #toast-container .toast .toast-message .btn, .dataTables_wrapper .dt-buttons .dt-button, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn, .footable.table tbody tr td.footable-editing .btn-group .btn, .footable.table tfoot tr.footable-editing td .btn, .smart-wizard .sw-toolbar .sw-btn-group .btn {
+    display: inline-block;
+    background-color: #eff8fe;
+    border-color: #eff8fe;
+    color: #666666;
+    border-radius: 4px;
+    text-transform: capitalize;
+    font-size: 15px;
+    line-height: 24px;
+    padding: 7px 20px;
+    border-width: 1px;
+    border-style: solid;
+    margin-bottom: 5px;
+    margin-right: 2px;
+  }
+  
+  .button:last-child, .fullcalendar .fc-toolbar .fc-button:last-child, #toast-container .toast .toast-message .btn:last-child, .dataTables_wrapper .dt-buttons .dt-button:last-child, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn:last-child, .footable.table tbody tr td.footable-editing .btn-group .btn:last-child, .footable.table tfoot tr.footable-editing td .btn:last-child, .smart-wizard .sw-toolbar .sw-btn-group .btn:last-child {
+    margin-right: 0;
+  }
+  
+  .button i, .fullcalendar .fc-toolbar .fc-button i, #toast-container .toast .toast-message .btn i, .dataTables_wrapper .dt-buttons .dt-button i, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn i, .footable.table tbody tr td.footable-editing .btn-group .btn i, .footable.table tfoot tr.footable-editing td .btn i, .smart-wizard .sw-toolbar .sw-btn-group .btn i {
+    font-size: 18px;
+    line-height: 24px;
+    margin-right: 6px;
+    float: left;
+  }
+  
+  .button span, .fullcalendar .fc-toolbar .fc-button span, #toast-container .toast .toast-message .btn span, .dataTables_wrapper .dt-buttons .dt-button span, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn span, .footable.table tbody tr td.footable-editing .btn-group .btn span, .footable.table tfoot tr.footable-editing td .btn span, .smart-wizard .sw-toolbar .sw-btn-group .btn span {
+    display: inline-block;
+  }
+  
+  .button:focus, .fullcalendar .fc-toolbar .fc-button:focus, #toast-container .toast .toast-message .btn:focus, .dataTables_wrapper .dt-buttons .dt-button:focus, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn:focus, .footable.table tbody tr td.footable-editing .btn-group .btn:focus, .footable.table tfoot tr.footable-editing td .btn:focus, .smart-wizard .sw-toolbar .sw-btn-group .btn:focus {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  
+  .button:hover, .fullcalendar .fc-toolbar .fc-button:hover, #toast-container .toast .toast-message .btn:hover, .dataTables_wrapper .dt-buttons .dt-button:hover, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn:hover, .footable.table tbody tr td.footable-editing .btn-group .btn:hover, .footable.table tfoot tr.footable-editing td .btn:hover, .smart-wizard .sw-toolbar .sw-btn-group .btn:hover {
+    background-color: #a7d9fa;
+    border-color: #a7d9fa;
+    color: #666666;
+  }
+  
+  .button-link {
+    height: auto !important;
+    width: auto !important;
+    background-color: transparent;
+    border: none !important;
+    color: #666666;
+    padding: 0 !important;
+  }
+  
+  .button-link:hover {
+    color: #428bfa;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .button-link i {
+    font-size: 22px;
+  }
+  
+  .button-link.button-xs i, .footable.table tbody tr td.footable-editing .btn-group .button-link.btn i {
+    font-size: 16px;
+  }
+  
+  .button-link.button-sm i, .fullcalendar .fc-toolbar .button-link.fc-button i, #toast-container .toast .toast-message .button-link.btn i, .dataTables_wrapper .dt-buttons .button-link.dt-button i {
+    font-size: 19px;
+  }
+  
+  .button-link.button-lg i {
+    font-size: 26px;
+  }
+  
+  .button-link.button-xl i {
+    font-size: 30px;
+  }
+  
+  .button-outline, .footable.table tfoot tr.footable-editing td .btn.footable-hide {
+    background-color: transparent;
+    border-color: #d7eefd;
+  }
+  
+  .button-outline:hover, .footable.table tfoot tr.footable-editing td .btn.footable-hide:hover {
+    background-color: #eff8fe;
+    border-color: #eff8fe;
+  }
+  
+  .button-box {
+    width: 40px;
+    height: 40px;
+    padding: 7px 5px;
+    text-align: center;
+  }
+  
+  .button-box i {
+    margin: 0;
+    float: none;
+    display: block;
+  }
+  
+  .button-box span {
+    display: none;
+    margin: 0;
+  }
+  
+  .button-icon-right {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  
+  .button-icon-right i {
+    margin-left: 6px;
+    margin-right: 0;
+    float: right;
+  }
+  
+  .button-square {
+    border-radius: 0;
+  }
+  
+  .button-round {
+    border-radius: 50px;
+  }
+  
+  /*-- Button Sizes --*/
+  .button-xs, .footable.table tbody tr td.footable-editing .btn-group .btn {
+    font-size: 11px;
+    padding: 0 10px;
+  }
+  
+  .button-xs i, .footable.table tbody tr td.footable-editing .btn-group .btn i {
+    font-size: 13px;
+    margin-right: 5px;
+  }
+  
+  .button-xs .button-icon-right i, .footable.table tbody tr td.footable-editing .btn-group .btn .button-icon-right i {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+  
+  .button-xs.button-box, .footable.table tbody tr td.footable-editing .btn-group .button-box.btn {
+    width: 26px;
+    height: 26px;
+    padding: 0 5px;
+  }
+  
+  .button-xs.button-box i, .footable.table tbody tr td.footable-editing .btn-group .button-box.btn i {
+    margin: 0;
+  }
+  
+  .button-sm, .fullcalendar .fc-toolbar .fc-button, #toast-container .toast .toast-message .btn, .dataTables_wrapper .dt-buttons .dt-button {
+    font-size: 13px;
+    padding: 3px 15px;
+  }
+  
+  .button-sm i, .fullcalendar .fc-toolbar .fc-button i, #toast-container .toast .toast-message .btn i, .dataTables_wrapper .dt-buttons .dt-button i {
+    font-size: 16px;
+    margin-right: 6px;
+  }
+  
+  .button-sm .button-icon-right i, .fullcalendar .fc-toolbar .fc-button .button-icon-right i, #toast-container .toast .toast-message .btn .button-icon-right i, .dataTables_wrapper .dt-buttons .dt-button .button-icon-right i {
+    margin-left: 6px;
+    margin-right: 0;
+  }
+  
+  .button-sm.button-box, .fullcalendar .fc-toolbar .button-box.fc-button, #toast-container .toast .toast-message .button-box.btn, .dataTables_wrapper .dt-buttons .button-box.dt-button {
+    width: 32px;
+    height: 32px;
+    padding: 3px 5px;
+  }
+  
+  .button-sm.button-box i, .fullcalendar .fc-toolbar .button-box.fc-button i, #toast-container .toast .toast-message .button-box.btn i, .dataTables_wrapper .dt-buttons .button-box.dt-button i {
+    margin: 0;
+  }
+  
+  .button-lg {
+    font-size: 17px;
+    padding: 11px 25px;
+  }
+  
+  .button-lg i {
+    font-size: 20px;
+  }
+  
+  .button-lg.button-box {
+    width: 48px;
+    height: 48px;
+    padding: 11px 5px;
+  }
+  
+  .button-lg.button-box i {
+    margin: 0;
+  }
+  
+  .button-xl {
+    font-size: 19px;
+    padding: 15px 30px;
+  }
+  
+  .button-xl i {
+    font-size: 24px;
+  }
+  
+  .button-xl.button-box {
+    width: 56px;
+    height: 56px;
+    padding: 15px 5px;
+  }
+  
+  .button-xl.button-box i {
+    margin: 0;
+  }
+  
+  /*-- Button Colors --*/
+  .button-primary, .swal-modal .swal-footer .button-primary, #toast-container .toast .toast-message .btn.btn-primary, .dataTables_wrapper .dt-buttons .dt-button, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn.btn-primary, .footable.table tbody tr td.footable-editing .btn-group .btn.footable-edit, .footable.table tfoot tr.footable-editing td .btn.btn-primary, .smart-wizard .sw-toolbar .sw-btn-group .btn {
+    background-color: #428bfa;
+    border-color: #428bfa;
+    color: #ffffff;
+  }
+  
+  .button-primary.button-outline, .swal-modal .swal-footer .button-outline.button-primary, #toast-container .toast .toast-message .button-outline.btn.btn-primary, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-primary.footable-hide, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-primary.footable-hide, .dataTables_wrapper .dt-buttons .button-outline.dt-button, .dataTables_wrapper .dt-buttons .footable.table tfoot tr.footable-editing td .dt-button.btn.footable-hide, .footable.table tfoot tr.footable-editing td .dataTables_wrapper .dt-buttons .dt-button.btn.footable-hide, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .button-outline.btn, .footable.table thead tfoot tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.footable-hide, .footable.table tfoot thead tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.footable-hide, .footable.table thead tfoot tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.footable-hide, .footable.table tfoot thead tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.footable-hide, .footable.table thead tfoot tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.btn-primary.footable-hide, .footable.table tfoot thead tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.btn-primary.footable-hide, .footable.table thead tfoot tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.btn-primary.footable-hide, .footable.table tfoot thead tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.btn-primary.footable-hide, .footable.table tbody tr td.footable-editing .btn-group .button-outline.btn.footable-edit, .footable.table tbody tfoot tr.footable-editing td.footable-editing .btn-group .btn.footable-edit.footable-hide, .footable.table tfoot tbody tr.footable-editing td.footable-editing .btn-group .btn.footable-edit.footable-hide, .footable.table tfoot tr.footable-editing td .button-outline.btn.btn-primary, .footable.table tfoot tr.footable-editing td .btn.btn-primary.footable-hide, .footable.table tfoot tr.footable-editing td .button-primary.btn.footable-hide, .smart-wizard .sw-toolbar .sw-btn-group .button-outline.btn, .smart-wizard .sw-toolbar .sw-btn-group .footable.table tfoot tr.footable-editing td .btn.footable-hide, .footable.table tfoot tr.footable-editing td .smart-wizard .sw-toolbar .sw-btn-group .btn.footable-hide {
+    background-color: transparent;
+    color: #428bfa;
+  }
+  
+  .button-primary.button-outline:hover, #toast-container .toast .toast-message .button-outline.btn.btn-primary:hover, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-primary.footable-hide:hover, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-primary.footable-hide:hover, .dataTables_wrapper .dt-buttons .button-outline.dt-button:hover, .dataTables_wrapper .dt-buttons .footable.table tfoot tr.footable-editing td .dt-button.btn.footable-hide:hover, .footable.table tfoot tr.footable-editing td .dataTables_wrapper .dt-buttons .dt-button.btn.footable-hide:hover, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .button-outline.btn:hover, .footable.table thead tfoot tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.footable-hide:hover, .footable.table tfoot thead tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.footable-hide:hover, .footable.table thead tfoot tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.footable-hide:hover, .footable.table tfoot thead tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.footable-hide:hover, .footable.table thead tfoot tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.btn-primary.footable-hide:hover, .footable.table tfoot thead tr.footable-editing th .footable-filtering-search .input-group .input-group-btn td .btn.btn-primary.footable-hide:hover, .footable.table thead tfoot tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.btn-primary.footable-hide:hover, .footable.table tfoot thead tr.footable-editing td th .footable-filtering-search .input-group .input-group-btn .btn.btn-primary.footable-hide:hover, .footable.table tbody tr td.footable-editing .btn-group .button-outline.btn.footable-edit:hover, .footable.table tbody tfoot tr.footable-editing td.footable-editing .btn-group .btn.footable-edit.footable-hide:hover, .footable.table tfoot tbody tr.footable-editing td.footable-editing .btn-group .btn.footable-edit.footable-hide:hover, .footable.table tfoot tr.footable-editing td .button-outline.btn.btn-primary:hover, .footable.table tfoot tr.footable-editing td .btn.btn-primary.footable-hide:hover, .footable.table tfoot tr.footable-editing td .button-primary.btn.footable-hide:hover, .smart-wizard .sw-toolbar .sw-btn-group .button-outline.btn:hover, .smart-wizard .sw-toolbar .sw-btn-group .footable.table tfoot tr.footable-editing td .btn.footable-hide:hover, .footable.table tfoot tr.footable-editing td .smart-wizard .sw-toolbar .sw-btn-group .btn.footable-hide:hover {
+    background-color: #428bfa;
+    border-color: #428bfa;
+    color: #ffffff;
+  }
+  
+  .button-primary:hover, .swal-modal .swal-footer .button-primary:hover, #toast-container .toast .toast-message .btn.btn-primary:hover, .dataTables_wrapper .dt-buttons .dt-button:hover, .footable.table thead tr th .footable-filtering-search .input-group .input-group-btn .btn:hover, .footable.table tbody tr td.footable-editing .btn-group .btn.footable-edit:hover, .footable.table tfoot tr.footable-editing td .btn.btn-primary:hover, .smart-wizard .sw-toolbar .sw-btn-group .btn:hover {
+    background-color: #297cf9;
+    border-color: #297cf9;
+    color: #ffffff;
+  }
+  
+  .button-secondary, .swal-modal .swal-footer .button-secondary, #toast-container .toast .toast-message .btn.btn-secondary {
+    background-color: #fb7da4;
+    border-color: #fb7da4;
+    color: #ffffff;
+  }
+  
+  .button-secondary.button-outline, .swal-modal .swal-footer .button-outline.button-secondary, #toast-container .toast .toast-message .button-outline.btn.btn-secondary, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-secondary.footable-hide, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-secondary.footable-hide, .footable.table tfoot tr.footable-editing td .button-secondary.btn.footable-hide {
+    background-color: transparent;
+    color: #fb7da4;
+  }
+  
+  .button-secondary.button-outline:hover, #toast-container .toast .toast-message .button-outline.btn.btn-secondary:hover, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-secondary.footable-hide:hover, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-secondary.footable-hide:hover, .footable.table tfoot tr.footable-editing td .button-secondary.btn.footable-hide:hover {
+    background-color: #fb7da4;
+    border-color: #fb7da4;
+    color: #ffffff;
+  }
+  
+  .button-secondary:hover, .swal-modal .swal-footer .button-secondary:hover, #toast-container .toast .toast-message .btn.btn-secondary:hover {
+    background-color: #fa6493;
+    border-color: #fa6493;
+    color: #ffffff;
+  }
+  
+  .button-success, .swal-modal .swal-footer .button-success, #toast-container .toast .toast-message .btn.btn-success {
+    background-color: #29db2d;
+    border-color: #29db2d;
+    color: #ffffff;
+  }
+  
+  .button-success.button-outline, .swal-modal .swal-footer .button-outline.button-success, #toast-container .toast .toast-message .button-outline.btn.btn-success, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-success.footable-hide, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-success.footable-hide, .footable.table tfoot tr.footable-editing td .button-success.btn.footable-hide {
+    background-color: transparent;
+    color: #29db2d;
+  }
+  
+  .button-success.button-outline:hover, #toast-container .toast .toast-message .button-outline.btn.btn-success:hover, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-success.footable-hide:hover, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-success.footable-hide:hover, .footable.table tfoot tr.footable-editing td .button-success.btn.footable-hide:hover {
+    background-color: #29db2d;
+    border-color: #29db2d;
+    color: #ffffff;
+  }
+  
+  .button-success:hover, .swal-modal .swal-footer .button-success:hover, #toast-container .toast .toast-message .btn.btn-success:hover {
+    background-color: #22c926;
+    border-color: #22c926;
+    color: #ffffff;
+  }
+  
+  .button-danger, .swal-modal .swal-footer .button-danger, #toast-container .toast .toast-message .btn.btn-danger, .footable.table tbody tr td.footable-editing .btn-group .btn.footable-delete {
+    background-color: #fd427c;
+    border-color: #fd427c;
+    color: #ffffff;
+  }
+  
+  .button-danger.button-outline, .swal-modal .swal-footer .button-outline.button-danger, #toast-container .toast .toast-message .button-outline.btn.btn-danger, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-danger.footable-hide, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-danger.footable-hide, .footable.table tbody tr td.footable-editing .btn-group .button-outline.btn.footable-delete, .footable.table tbody tfoot tr.footable-editing td.footable-editing .btn-group .btn.footable-delete.footable-hide, .footable.table tfoot tbody tr.footable-editing td.footable-editing .btn-group .btn.footable-delete.footable-hide, .footable.table tfoot tr.footable-editing td .button-danger.btn.footable-hide {
+    background-color: transparent;
+    color: #fd427c;
+  }
+  
+  .button-danger.button-outline:hover, #toast-container .toast .toast-message .button-outline.btn.btn-danger:hover, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-danger.footable-hide:hover, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-danger.footable-hide:hover, .footable.table tbody tr td.footable-editing .btn-group .button-outline.btn.footable-delete:hover, .footable.table tbody tfoot tr.footable-editing td.footable-editing .btn-group .btn.footable-delete.footable-hide:hover, .footable.table tfoot tbody tr.footable-editing td.footable-editing .btn-group .btn.footable-delete.footable-hide:hover, .footable.table tfoot tr.footable-editing td .button-danger.btn.footable-hide:hover {
+    background-color: #fd427c;
+    border-color: #fd427c;
+    color: #ffffff;
+  }
+  
+  .button-danger:hover, .swal-modal .swal-footer .button-danger:hover, #toast-container .toast .toast-message .btn.btn-danger:hover, .footable.table tbody tr td.footable-editing .btn-group .btn.footable-delete:hover {
+    background-color: #fd296b;
+    border-color: #fd296b;
+    color: #ffffff;
+  }
+  
+  .button-warning, .swal-modal .swal-footer .button-warning, #toast-container .toast .toast-message .btn.btn-warning {
+    background-color: #ff9666;
+    border-color: #ff9666;
+    color: #ffffff;
+  }
+  
+  .button-warning.button-outline, .swal-modal .swal-footer .button-outline.button-warning, #toast-container .toast .toast-message .button-outline.btn.btn-warning, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-warning.footable-hide, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-warning.footable-hide, .footable.table tfoot tr.footable-editing td .button-warning.btn.footable-hide {
+    background-color: transparent;
+    color: #ff9666;
+  }
+  
+  .button-warning.button-outline:hover, #toast-container .toast .toast-message .button-outline.btn.btn-warning:hover, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-warning.footable-hide:hover, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-warning.footable-hide:hover, .footable.table tfoot tr.footable-editing td .button-warning.btn.footable-hide:hover {
+    background-color: #ff9666;
+    border-color: #ff9666;
+    color: #ffffff;
+  }
+  
+  .button-warning:hover, .swal-modal .swal-footer .button-warning:hover, #toast-container .toast .toast-message .btn.btn-warning:hover {
+    background-color: #ff854d;
+    border-color: #ff854d;
+    color: #ffffff;
+  }
+  
+  .button-info, .swal-modal .swal-footer .button-info, #toast-container .toast .toast-message .btn.btn-info, .footable.table tfoot tr.footable-editing td .btn.footable-hide {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #ffffff;
+  }
+  
+  .button-info.button-outline, .swal-modal .swal-footer .button-outline.button-info, #toast-container .toast .toast-message .button-outline.btn.btn-info, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-info.footable-hide, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-info.footable-hide, .footable.table tfoot tr.footable-editing td .btn.footable-hide {
+    background-color: transparent;
+    color: #17a2b8;
+  }
+  
+  .button-info.button-outline:hover, #toast-container .toast .toast-message .button-outline.btn.btn-info:hover, #toast-container .toast .toast-message .footable.table tfoot tr.footable-editing td .btn.btn-info.footable-hide:hover, .footable.table tfoot tr.footable-editing td #toast-container .toast .toast-message .btn.btn-info.footable-hide:hover, .footable.table tfoot tr.footable-editing td .btn.footable-hide:hover {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #ffffff;
+  }
+  
+  .button-info:hover, .swal-modal .swal-footer .button-info:hover, #toast-container .toast .toast-message .btn.btn-info:hover, .footable.table tfoot tr.footable-editing td .btn.footable-hide:hover {
+    background-color: #148ea1;
+    border-color: #148ea1;
+    color: #ffffff;
+  }
+  
+  .button-dark {
+    background-color: #343434;
+    border-color: #343434;
+    color: #ffffff;
+  }
+  
+  .button-dark.button-outline, .footable.table tfoot tr.footable-editing td .button-dark.btn.footable-hide {
+    background-color: transparent;
+    color: #343434;
+  }
+  
+  .button-dark.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-dark.btn.footable-hide:hover {
+    background-color: #343434;
+    border-color: #343434;
+    color: #ffffff;
+  }
+  
+  .button-dark:hover {
+    background-color: #414141;
+    border-color: #414141;
+    color: #ffffff;
+  }
+  
+  /*-- Button Socails --*/
+  .button-android {
+    background-color: #7AC157;
+    border-color: #7AC157;
+    color: #ffffff;
+  }
+  
+  .button-android.button-outline, .footable.table tfoot tr.footable-editing td .button-android.btn.footable-hide {
+    background-color: transparent;
+    color: #7AC157;
+  }
+  
+  .button-android.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-android.btn.footable-hide:hover {
+    background-color: #7AC157;
+    border-color: #7AC157;
+    color: #ffffff;
+  }
+  
+  .button-android:hover {
+    background-color: #89c86a;
+    border-color: #89c86a;
+    color: #ffffff;
+  }
+  
+  .button-apple {
+    background-color: #B8B8B8;
+    border-color: #B8B8B8;
+    color: #ffffff;
+  }
+  
+  .button-apple.button-outline, .footable.table tfoot tr.footable-editing td .button-apple.btn.footable-hide {
+    background-color: transparent;
+    color: #B8B8B8;
+  }
+  
+  .button-apple.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-apple.btn.footable-hide:hover {
+    background-color: #B8B8B8;
+    border-color: #B8B8B8;
+    color: #ffffff;
+  }
+  
+  .button-apple:hover {
+    background-color: #c5c5c5;
+    border-color: #c5c5c5;
+    color: #ffffff;
+  }
+  
+  .button-behance {
+    background-color: #1869FF;
+    border-color: #1869FF;
+    color: #ffffff;
+  }
+  
+  .button-behance.button-outline, .footable.table tfoot tr.footable-editing td .button-behance.btn.footable-hide {
+    background-color: transparent;
+    color: #1869FF;
+  }
+  
+  .button-behance.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-behance.btn.footable-hide:hover {
+    background-color: #1869FF;
+    border-color: #1869FF;
+    color: #ffffff;
+  }
+  
+  .button-behance:hover {
+    background-color: #327aff;
+    border-color: #327aff;
+    color: #ffffff;
+  }
+  
+  .button-codepen {
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+  }
+  
+  .button-codepen.button-outline, .footable.table tfoot tr.footable-editing td .button-codepen.btn.footable-hide {
+    background-color: transparent;
+    color: #000000;
+  }
+  
+  .button-codepen.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-codepen.btn.footable-hide:hover {
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+  }
+  
+  .button-codepen:hover {
+    background-color: #0d0d0d;
+    border-color: #0d0d0d;
+    color: #ffffff;
+  }
+  
+  .button-dribbble {
+    background-color: #EA4C8A;
+    border-color: #EA4C8A;
+    color: #ffffff;
+  }
+  
+  .button-dribbble.button-outline, .footable.table tfoot tr.footable-editing td .button-dribbble.btn.footable-hide {
+    background-color: transparent;
+    color: #EA4C8A;
+  }
+  
+  .button-dribbble.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-dribbble.btn.footable-hide:hover {
+    background-color: #EA4C8A;
+    border-color: #EA4C8A;
+    color: #ffffff;
+  }
+  
+  .button-dribbble:hover {
+    background-color: #ed6399;
+    border-color: #ed6399;
+    color: #ffffff;
+  }
+  
+  .button-dropbox {
+    background-color: #007EE5;
+    border-color: #007EE5;
+    color: #ffffff;
+  }
+  
+  .button-dropbox.button-outline, .footable.table tfoot tr.footable-editing td .button-dropbox.btn.footable-hide {
+    background-color: transparent;
+    color: #007EE5;
+  }
+  
+  .button-dropbox.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-dropbox.btn.footable-hide:hover {
+    background-color: #007EE5;
+    border-color: #007EE5;
+    color: #ffffff;
+  }
+  
+  .button-dropbox:hover {
+    background-color: #008cff;
+    border-color: #008cff;
+    color: #ffffff;
+  }
+  
+  .button-evernote {
+    background-color: #78D525;
+    border-color: #78D525;
+    color: #ffffff;
+  }
+  
+  .button-evernote.button-outline, .footable.table tfoot tr.footable-editing td .button-evernote.btn.footable-hide {
+    background-color: transparent;
+    color: #78D525;
+  }
+  
+  .button-evernote.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-evernote.btn.footable-hide:hover {
+    background-color: #78D525;
+    border-color: #78D525;
+    color: #ffffff;
+  }
+  
+  .button-evernote:hover {
+    background-color: #85dc37;
+    border-color: #85dc37;
+    color: #ffffff;
+  }
+  
+  .button-facebook {
+    background-color: #4867AA;
+    border-color: #4867AA;
+    color: #ffffff;
+  }
+  
+  .button-facebook.button-outline, .footable.table tfoot tr.footable-editing td .button-facebook.btn.footable-hide {
+    background-color: transparent;
+    color: #4867AA;
+  }
+  
+  .button-facebook.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-facebook.btn.footable-hide:hover {
+    background-color: #4867AA;
+    border-color: #4867AA;
+    color: #ffffff;
+  }
+  
+  .button-facebook:hover {
+    background-color: #5574b7;
+    border-color: #5574b7;
+    color: #ffffff;
+  }
+  
+  .button-github {
+    background-color: #313131;
+    border-color: #313131;
+    color: #ffffff;
+  }
+  
+  .button-github.button-outline, .footable.table tfoot tr.footable-editing td .button-github.btn.footable-hide {
+    background-color: transparent;
+    color: #313131;
+  }
+  
+  .button-github.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-github.btn.footable-hide:hover {
+    background-color: #313131;
+    border-color: #313131;
+    color: #ffffff;
+  }
+  
+  .button-github:hover {
+    background-color: #3e3e3e;
+    border-color: #3e3e3e;
+    color: #ffffff;
+  }
+  
+  .button-google-drive {
+    background-color: #1DA462;
+    border-color: #1DA462;
+    color: #ffffff;
+  }
+  
+  .button-google-drive.button-outline, .footable.table tfoot tr.footable-editing td .button-google-drive.btn.footable-hide {
+    background-color: transparent;
+    color: #1DA462;
+  }
+  
+  .button-google-drive.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-google-drive.btn.footable-hide:hover {
+    background-color: #1DA462;
+    border-color: #1DA462;
+    color: #ffffff;
+  }
+  
+  .button-google-drive:hover {
+    background-color: #21ba6f;
+    border-color: #21ba6f;
+    color: #ffffff;
+  }
+  
+  .button-google-earth {
+    background-color: #4285F4;
+    border-color: #4285F4;
+    color: #ffffff;
+  }
+  
+  .button-google-earth.button-outline, .footable.table tfoot tr.footable-editing td .button-google-earth.btn.footable-hide {
+    background-color: transparent;
+    color: #4285F4;
+  }
+  
+  .button-google-earth.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-google-earth.btn.footable-hide:hover {
+    background-color: #4285F4;
+    border-color: #4285F4;
+    color: #ffffff;
+  }
+  
+  .button-google-earth:hover {
+    background-color: #5a95f5;
+    border-color: #5a95f5;
+    color: #ffffff;
+  }
+  
+  .button-google-glass {
+    background-color: #EA4335;
+    border-color: #EA4335;
+    color: #ffffff;
+  }
+  
+  .button-google-glass.button-outline, .footable.table tfoot tr.footable-editing td .button-google-glass.btn.footable-hide {
+    background-color: transparent;
+    color: #EA4335;
+  }
+  
+  .button-google-glass.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-google-glass.btn.footable-hide:hover {
+    background-color: #EA4335;
+    border-color: #EA4335;
+    color: #ffffff;
+  }
+  
+  .button-google-glass:hover {
+    background-color: #ec584c;
+    border-color: #ec584c;
+    color: #ffffff;
+  }
+  
+  .button-google-maps {
+    background-color: #5083C3;
+    border-color: #5083C3;
+    color: #ffffff;
+  }
+  
+  .button-google-maps.button-outline, .footable.table tfoot tr.footable-editing td .button-google-maps.btn.footable-hide {
+    background-color: transparent;
+    color: #5083C3;
+  }
+  
+  .button-google-maps.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-google-maps.btn.footable-hide:hover {
+    background-color: #5083C3;
+    border-color: #5083C3;
+    color: #ffffff;
+  }
+  
+  .button-google-maps:hover {
+    background-color: #6390ca;
+    border-color: #6390ca;
+    color: #ffffff;
+  }
+  
+  .button-google-play {
+    background-color: #01B9FD;
+    border-color: #01B9FD;
+    color: #ffffff;
+  }
+  
+  .button-google-play.button-outline, .footable.table tfoot tr.footable-editing td .button-google-play.btn.footable-hide {
+    background-color: transparent;
+    color: #01B9FD;
+  }
+  
+  .button-google-play.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-google-play.btn.footable-hide:hover {
+    background-color: #01B9FD;
+    border-color: #01B9FD;
+    color: #ffffff;
+  }
+  
+  .button-google-play:hover {
+    background-color: #19c0fe;
+    border-color: #19c0fe;
+    color: #ffffff;
+  }
+  
+  .button-google-plus {
+    background-color: #DD5144;
+    border-color: #DD5144;
+    color: #ffffff;
+  }
+  
+  .button-google-plus.button-outline, .footable.table tfoot tr.footable-editing td .button-google-plus.btn.footable-hide {
+    background-color: transparent;
+    color: #DD5144;
+  }
+  
+  .button-google-plus.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-google-plus.btn.footable-hide:hover {
+    background-color: #DD5144;
+    border-color: #DD5144;
+    color: #ffffff;
+  }
+  
+  .button-google-plus:hover {
+    background-color: #e1655a;
+    border-color: #e1655a;
+    color: #ffffff;
+  }
+  
+  .button-google {
+    background-color: #4285F4;
+    border-color: #4285F4;
+    color: #ffffff;
+  }
+  
+  .button-google.button-outline, .footable.table tfoot tr.footable-editing td .button-google.btn.footable-hide {
+    background-color: transparent;
+    color: #4285F4;
+  }
+  
+  .button-google.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-google.btn.footable-hide:hover {
+    background-color: #4285F4;
+    border-color: #4285F4;
+    color: #ffffff;
+  }
+  
+  .button-google:hover {
+    background-color: #5a95f5;
+    border-color: #5a95f5;
+    color: #ffffff;
+  }
+  
+  .button-instagram {
+    background-color: #B23A94;
+    border-color: #B23A94;
+    color: #ffffff;
+  }
+  
+  .button-instagram.button-outline, .footable.table tfoot tr.footable-editing td .button-instagram.btn.footable-hide {
+    background-color: transparent;
+    color: #B23A94;
+  }
+  
+  .button-instagram.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-instagram.btn.footable-hide:hover {
+    background-color: #B23A94;
+    border-color: #B23A94;
+    color: #ffffff;
+  }
+  
+  .button-instagram:hover {
+    background-color: #c244a2;
+    border-color: #c244a2;
+    color: #ffffff;
+  }
+  
+  .button-css3 {
+    background-color: #0277BD;
+    border-color: #0277BD;
+    color: #ffffff;
+  }
+  
+  .button-css3.button-outline, .footable.table tfoot tr.footable-editing td .button-css3.btn.footable-hide {
+    background-color: transparent;
+    color: #0277BD;
+  }
+  
+  .button-css3.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-css3.btn.footable-hide:hover {
+    background-color: #0277BD;
+    border-color: #0277BD;
+    color: #ffffff;
+  }
+  
+  .button-css3:hover {
+    background-color: #0287d6;
+    border-color: #0287d6;
+    color: #ffffff;
+  }
+  
+  .button-html5 {
+    background-color: #E44D26;
+    border-color: #E44D26;
+    color: #ffffff;
+  }
+  
+  .button-html5.button-outline, .footable.table tfoot tr.footable-editing td .button-html5.btn.footable-hide {
+    background-color: transparent;
+    color: #E44D26;
+  }
+  
+  .button-html5.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-html5.btn.footable-hide:hover {
+    background-color: #E44D26;
+    border-color: #E44D26;
+    color: #ffffff;
+  }
+  
+  .button-html5:hover {
+    background-color: #e7603d;
+    border-color: #e7603d;
+    color: #ffffff;
+  }
+  
+  .button-javascript {
+    background-color: #F9DC3D;
+    border-color: #F9DC3D;
+    color: #ffffff;
+  }
+  
+  .button-javascript.button-outline, .footable.table tfoot tr.footable-editing td .button-javascript.btn.footable-hide {
+    background-color: transparent;
+    color: #F9DC3D;
+  }
+  
+  .button-javascript.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-javascript.btn.footable-hide:hover {
+    background-color: #F9DC3D;
+    border-color: #F9DC3D;
+    color: #ffffff;
+  }
+  
+  .button-javascript:hover {
+    background-color: #fae056;
+    border-color: #fae056;
+    color: #ffffff;
+  }
+  
+  .button-python {
+    background-color: #0C9DBF;
+    border-color: #0C9DBF;
+    color: #ffffff;
+  }
+  
+  .button-python.button-outline, .footable.table tfoot tr.footable-editing td .button-python.btn.footable-hide {
+    background-color: transparent;
+    color: #0C9DBF;
+  }
+  
+  .button-python.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-python.btn.footable-hide:hover {
+    background-color: #0C9DBF;
+    border-color: #0C9DBF;
+    color: #ffffff;
+  }
+  
+  .button-python:hover {
+    background-color: #0eb1d7;
+    border-color: #0eb1d7;
+    color: #ffffff;
+  }
+  
+  .button-lastfm {
+    background-color: #E31B23;
+    border-color: #E31B23;
+    color: #ffffff;
+  }
+  
+  .button-lastfm.button-outline, .footable.table tfoot tr.footable-editing td .button-lastfm.btn.footable-hide {
+    background-color: transparent;
+    color: #E31B23;
+  }
+  
+  .button-lastfm.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-lastfm.btn.footable-hide:hover {
+    background-color: #E31B23;
+    border-color: #E31B23;
+    color: #ffffff;
+  }
+  
+  .button-lastfm:hover {
+    background-color: #e63138;
+    border-color: #e63138;
+    color: #ffffff;
+  }
+  
+  .button-linkedin {
+    background-color: #007BB6;
+    border-color: #007BB6;
+    color: #ffffff;
+  }
+  
+  .button-linkedin.button-outline, .footable.table tfoot tr.footable-editing td .button-linkedin.btn.footable-hide {
+    background-color: transparent;
+    color: #007BB6;
+  }
+  
+  .button-linkedin.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-linkedin.btn.footable-hide:hover {
+    background-color: #007BB6;
+    border-color: #007BB6;
+    color: #ffffff;
+  }
+  
+  .button-linkedin:hover {
+    background-color: #008cd0;
+    border-color: #008cd0;
+    color: #ffffff;
+  }
+  
+  .button-paypal {
+    background-color: #002F86;
+    border-color: #002F86;
+    color: #ffffff;
+  }
+  
+  .button-paypal.button-outline, .footable.table tfoot tr.footable-editing td .button-paypal.btn.footable-hide {
+    background-color: transparent;
+    color: #002F86;
+  }
+  
+  .button-paypal.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-paypal.btn.footable-hide:hover {
+    background-color: #002F86;
+    border-color: #002F86;
+    color: #ffffff;
+  }
+  
+  .button-paypal:hover {
+    background-color: #0038a0;
+    border-color: #0038a0;
+    color: #ffffff;
+  }
+  
+  .button-pinterest {
+    background-color: #BD081B;
+    border-color: #BD081B;
+    color: #ffffff;
+  }
+  
+  .button-pinterest.button-outline, .footable.table tfoot tr.footable-editing td .button-pinterest.btn.footable-hide {
+    background-color: transparent;
+    color: #BD081B;
+  }
+  
+  .button-pinterest.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-pinterest.btn.footable-hide:hover {
+    background-color: #BD081B;
+    border-color: #BD081B;
+    color: #ffffff;
+  }
+  
+  .button-pinterest:hover {
+    background-color: #d5091e;
+    border-color: #d5091e;
+    color: #ffffff;
+  }
+  
+  .button-pocket {
+    background-color: #EF3E56;
+    border-color: #EF3E56;
+    color: #ffffff;
+  }
+  
+  .button-pocket.button-outline, .footable.table tfoot tr.footable-editing td .button-pocket.btn.footable-hide {
+    background-color: transparent;
+    color: #EF3E56;
+  }
+  
+  .button-pocket.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-pocket.btn.footable-hide:hover {
+    background-color: #EF3E56;
+    border-color: #EF3E56;
+    color: #ffffff;
+  }
+  
+  .button-pocket:hover {
+    background-color: #f1566b;
+    border-color: #f1566b;
+    color: #ffffff;
+  }
+  
+  .button-polymer {
+    background-color: #F87292;
+    border-color: #F87292;
+    color: #ffffff;
+  }
+  
+  .button-polymer.button-outline, .footable.table tfoot tr.footable-editing td .button-polymer.btn.footable-hide {
+    background-color: transparent;
+    color: #F87292;
+  }
+  
+  .button-polymer.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-polymer.btn.footable-hide:hover {
+    background-color: #F87292;
+    border-color: #F87292;
+    color: #ffffff;
+  }
+  
+  .button-polymer:hover {
+    background-color: #f98aa5;
+    border-color: #f98aa5;
+    color: #ffffff;
+  }
+  
+  .button-rss {
+    background-color: #F99C3A;
+    border-color: #F99C3A;
+    color: #ffffff;
+  }
+  
+  .button-rss.button-outline, .footable.table tfoot tr.footable-editing td .button-rss.btn.footable-hide {
+    background-color: transparent;
+    color: #F99C3A;
+  }
+  
+  .button-rss.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-rss.btn.footable-hide:hover {
+    background-color: #F99C3A;
+    border-color: #F99C3A;
+    color: #ffffff;
+  }
+  
+  .button-rss:hover {
+    background-color: #faa853;
+    border-color: #faa853;
+    color: #ffffff;
+  }
+  
+  .button-share {
+    background-color: #2C9CFF;
+    border-color: #2C9CFF;
+    color: #ffffff;
+  }
+  
+  .button-share.button-outline, .footable.table tfoot tr.footable-editing td .button-share.btn.footable-hide {
+    background-color: transparent;
+    color: #2C9CFF;
+  }
+  
+  .button-share.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-share.btn.footable-hide:hover {
+    background-color: #2C9CFF;
+    border-color: #2C9CFF;
+    color: #ffffff;
+  }
+  
+  .button-share:hover {
+    background-color: #46a8ff;
+    border-color: #46a8ff;
+    color: #ffffff;
+  }
+  
+  .button-stackoverflow {
+    background-color: #F38024;
+    border-color: #F38024;
+    color: #ffffff;
+  }
+  
+  .button-stackoverflow.button-outline, .footable.table tfoot tr.footable-editing td .button-stackoverflow.btn.footable-hide {
+    background-color: transparent;
+    color: #F38024;
+  }
+  
+  .button-stackoverflow.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-stackoverflow.btn.footable-hide:hover {
+    background-color: #F38024;
+    border-color: #F38024;
+    color: #ffffff;
+  }
+  
+  .button-stackoverflow:hover {
+    background-color: #f48e3c;
+    border-color: #f48e3c;
+    color: #ffffff;
+  }
+  
+  .button-steam {
+    background-color: #15497B;
+    border-color: #15497B;
+    color: #ffffff;
+  }
+  
+  .button-steam.button-outline, .footable.table tfoot tr.footable-editing td .button-steam.btn.footable-hide {
+    background-color: transparent;
+    color: #15497B;
+  }
+  
+  .button-steam.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-steam.btn.footable-hide:hover {
+    background-color: #15497B;
+    border-color: #15497B;
+    color: #ffffff;
+  }
+  
+  .button-steam:hover {
+    background-color: #195691;
+    border-color: #195691;
+    color: #ffffff;
+  }
+  
+  .button-twitter {
+    background-color: #1DA1F2;
+    border-color: #1DA1F2;
+    color: #ffffff;
+  }
+  
+  .button-twitter.button-outline, .footable.table tfoot tr.footable-editing td .button-twitter.btn.footable-hide {
+    background-color: transparent;
+    color: #1DA1F2;
+  }
+  
+  .button-twitter.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-twitter.btn.footable-hide:hover {
+    background-color: #1DA1F2;
+    border-color: #1DA1F2;
+    color: #ffffff;
+  }
+  
+  .button-twitter:hover {
+    background-color: #35abf3;
+    border-color: #35abf3;
+    color: #ffffff;
+  }
+  
+  .button-vk {
+    background-color: #5181B8;
+    border-color: #5181B8;
+    color: #ffffff;
+  }
+  
+  .button-vk.button-outline, .footable.table tfoot tr.footable-editing td .button-vk.btn.footable-hide {
+    background-color: transparent;
+    color: #5181B8;
+  }
+  
+  .button-vk.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-vk.btn.footable-hide:hover {
+    background-color: #5181B8;
+    border-color: #5181B8;
+    color: #ffffff;
+  }
+  
+  .button-vk:hover {
+    background-color: #638ebf;
+    border-color: #638ebf;
+    color: #ffffff;
+  }
+  
+  .button-wikipedia {
+    background-color: #E9E9E9;
+    border-color: #E9E9E9;
+    color: #343434;
+  }
+  
+  .button-wikipedia.button-outline, .footable.table tfoot tr.footable-editing td .button-wikipedia.btn.footable-hide {
+    background-color: transparent;
+    color: #343434;
+  }
+  
+  .button-wikipedia.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-wikipedia.btn.footable-hide:hover {
+    background-color: #E9E9E9;
+    border-color: #E9E9E9;
+    color: #343434;
+  }
+  
+  .button-wikipedia:hover {
+    background-color: #f6f6f6;
+    border-color: #f6f6f6;
+    color: #343434;
+  }
+  
+  .button-windows {
+    background-color: #0078D6;
+    border-color: #0078D6;
+    color: #ffffff;
+  }
+  
+  .button-windows.button-outline, .footable.table tfoot tr.footable-editing td .button-windows.btn.footable-hide {
+    background-color: transparent;
+    color: #0078D6;
+  }
+  
+  .button-windows.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-windows.btn.footable-hide:hover {
+    background-color: #0078D6;
+    border-color: #0078D6;
+    color: #ffffff;
+  }
+  
+  .button-windows:hover {
+    background-color: #0086f0;
+    border-color: #0086f0;
+    color: #ffffff;
+  }
+  
+  .button-500px {
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+  }
+  
+  .button-500px.button-outline, .footable.table tfoot tr.footable-editing td .button-500px.btn.footable-hide {
+    background-color: transparent;
+    color: #000000;
+  }
+  
+  .button-500px.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-500px.btn.footable-hide:hover {
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+  }
+  
+  .button-500px:hover {
+    background-color: #0d0d0d;
+    border-color: #0d0d0d;
+    color: #ffffff;
+  }
+  
+  .button-8tracks {
+    background-color: #122D4B;
+    border-color: #122D4B;
+    color: #ffffff;
+  }
+  
+  .button-8tracks.button-outline, .footable.table tfoot tr.footable-editing td .button-8tracks.btn.footable-hide {
+    background-color: transparent;
+    color: #122D4B;
+  }
+  
+  .button-8tracks.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-8tracks.btn.footable-hide:hover {
+    background-color: #122D4B;
+    border-color: #122D4B;
+    color: #ffffff;
+  }
+  
+  .button-8tracks:hover {
+    background-color: #173960;
+    border-color: #173960;
+    color: #ffffff;
+  }
+  
+  .button-amazon {
+    background-color: #F79B34;
+    border-color: #F79B34;
+    color: #ffffff;
+  }
+  
+  .button-amazon.button-outline, .footable.table tfoot tr.footable-editing td .button-amazon.btn.footable-hide {
+    background-color: transparent;
+    color: #F79B34;
+  }
+  
+  .button-amazon.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-amazon.btn.footable-hide:hover {
+    background-color: #F79B34;
+    border-color: #F79B34;
+    color: #ffffff;
+  }
+  
+  .button-amazon:hover {
+    background-color: #f8a74d;
+    border-color: #f8a74d;
+    color: #ffffff;
+  }
+  
+  .button-blogger {
+    background-color: #F06A35;
+    border-color: #F06A35;
+    color: #ffffff;
+  }
+  
+  .button-blogger.button-outline, .footable.table tfoot tr.footable-editing td .button-blogger.btn.footable-hide {
+    background-color: transparent;
+    color: #F06A35;
+  }
+  
+  .button-blogger.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-blogger.btn.footable-hide:hover {
+    background-color: #F06A35;
+    border-color: #F06A35;
+    color: #ffffff;
+  }
+  
+  .button-blogger:hover {
+    background-color: #f27c4d;
+    border-color: #f27c4d;
+    color: #ffffff;
+  }
+  
+  .button-delicious {
+    background-color: #0000FE;
+    border-color: #0000FE;
+    color: #ffffff;
+  }
+  
+  .button-delicious.button-outline, .footable.table tfoot tr.footable-editing td .button-delicious.btn.footable-hide {
+    background-color: transparent;
+    color: #0000FE;
+  }
+  
+  .button-delicious.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-delicious.btn.footable-hide:hover {
+    background-color: #0000FE;
+    border-color: #0000FE;
+    color: #ffffff;
+  }
+  
+  .button-delicious:hover {
+    background-color: #1919ff;
+    border-color: #1919ff;
+    color: #ffffff;
+  }
+  
+  .button-disqus {
+    background-color: #2E9EFE;
+    border-color: #2E9EFE;
+    color: #ffffff;
+  }
+  
+  .button-disqus.button-outline, .footable.table tfoot tr.footable-editing td .button-disqus.btn.footable-hide {
+    background-color: transparent;
+    color: #2E9EFE;
+  }
+  
+  .button-disqus.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-disqus.btn.footable-hide:hover {
+    background-color: #2E9EFE;
+    border-color: #2E9EFE;
+    color: #ffffff;
+  }
+  
+  .button-disqus:hover {
+    background-color: #47aafe;
+    border-color: #47aafe;
+    color: #ffffff;
+  }
+  
+  .button-flattr {
+    background-color: #7AB831;
+    border-color: #7AB831;
+    color: #ffffff;
+  }
+  
+  .button-flattr.button-outline, .footable.table tfoot tr.footable-editing td .button-flattr.btn.footable-hide {
+    background-color: transparent;
+    color: #7AB831;
+  }
+  
+  .button-flattr.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-flattr.btn.footable-hide:hover {
+    background-color: #7AB831;
+    border-color: #7AB831;
+    color: #ffffff;
+  }
+  
+  .button-flattr:hover {
+    background-color: #87ca38;
+    border-color: #87ca38;
+    color: #ffffff;
+  }
+  
+  .button-flickr {
+    background-color: #FE0084;
+    border-color: #FE0084;
+    color: #ffffff;
+  }
+  
+  .button-flickr.button-outline, .footable.table tfoot tr.footable-editing td .button-flickr.btn.footable-hide {
+    background-color: transparent;
+    color: #FE0084;
+  }
+  
+  .button-flickr.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-flickr.btn.footable-hide:hover {
+    background-color: #FE0084;
+    border-color: #FE0084;
+    color: #ffffff;
+  }
+  
+  .button-flickr:hover {
+    background-color: #ff1990;
+    border-color: #ff1990;
+    color: #ffffff;
+  }
+  
+  .button-odnoklassniki {
+    background-color: #F58220;
+    border-color: #F58220;
+    color: #ffffff;
+  }
+  
+  .button-odnoklassniki.button-outline, .footable.table tfoot tr.footable-editing td .button-odnoklassniki.btn.footable-hide {
+    background-color: transparent;
+    color: #F58220;
+  }
+  
+  .button-odnoklassniki.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-odnoklassniki.btn.footable-hide:hover {
+    background-color: #F58220;
+    border-color: #F58220;
+    color: #ffffff;
+  }
+  
+  .button-odnoklassniki:hover {
+    background-color: #f69038;
+    border-color: #f69038;
+    color: #ffffff;
+  }
+  
+  .button-outlook {
+    background-color: #0072C6;
+    border-color: #0072C6;
+    color: #ffffff;
+  }
+  
+  .button-outlook.button-outline, .footable.table tfoot tr.footable-editing td .button-outlook.btn.footable-hide {
+    background-color: transparent;
+    color: #0072C6;
+  }
+  
+  .button-outlook.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-outlook.btn.footable-hide:hover {
+    background-color: #0072C6;
+    border-color: #0072C6;
+    color: #ffffff;
+  }
+  
+  .button-outlook:hover {
+    background-color: #0081e0;
+    border-color: #0081e0;
+    color: #ffffff;
+  }
+  
+  .button-playstation {
+    background-color: #07418E;
+    border-color: #07418E;
+    color: #ffffff;
+  }
+  
+  .button-playstation.button-outline, .footable.table tfoot tr.footable-editing td .button-playstation.btn.footable-hide {
+    background-color: transparent;
+    color: #07418E;
+  }
+  
+  .button-playstation.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-playstation.btn.footable-hide:hover {
+    background-color: #07418E;
+    border-color: #07418E;
+    color: #ffffff;
+  }
+  
+  .button-playstation:hover {
+    background-color: #084ca6;
+    border-color: #084ca6;
+    color: #ffffff;
+  }
+  
+  .button-reddit {
+    background-color: #FF4500;
+    border-color: #FF4500;
+    color: #ffffff;
+  }
+  
+  .button-reddit.button-outline, .footable.table tfoot tr.footable-editing td .button-reddit.btn.footable-hide {
+    background-color: transparent;
+    color: #FF4500;
+  }
+  
+  .button-reddit.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-reddit.btn.footable-hide:hover {
+    background-color: #FF4500;
+    border-color: #FF4500;
+    color: #ffffff;
+  }
+  
+  .button-reddit:hover {
+    background-color: #ff581a;
+    border-color: #ff581a;
+    color: #ffffff;
+  }
+  
+  .button-skype {
+    background-color: #00A9F0;
+    border-color: #00A9F0;
+    color: #ffffff;
+  }
+  
+  .button-skype.button-outline, .footable.table tfoot tr.footable-editing td .button-skype.btn.footable-hide {
+    background-color: transparent;
+    color: #00A9F0;
+  }
+  
+  .button-skype.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-skype.btn.footable-hide:hover {
+    background-color: #00A9F0;
+    border-color: #00A9F0;
+    color: #ffffff;
+  }
+  
+  .button-skype:hover {
+    background-color: #0bb7ff;
+    border-color: #0bb7ff;
+    color: #ffffff;
+  }
+  
+  .button-slideshare {
+    background-color: #0077B5;
+    border-color: #0077B5;
+    color: #ffffff;
+  }
+  
+  .button-slideshare.button-outline, .footable.table tfoot tr.footable-editing td .button-slideshare.btn.footable-hide {
+    background-color: transparent;
+    color: #0077B5;
+  }
+  
+  .button-slideshare.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-slideshare.btn.footable-hide:hover {
+    background-color: #0077B5;
+    border-color: #0077B5;
+    color: #ffffff;
+  }
+  
+  .button-slideshare:hover {
+    background-color: #0088cf;
+    border-color: #0088cf;
+    color: #ffffff;
+  }
+  
+  .button-soundcloud {
+    background-color: #FE4900;
+    border-color: #FE4900;
+    color: #ffffff;
+  }
+  
+  .button-soundcloud.button-outline, .footable.table tfoot tr.footable-editing td .button-soundcloud.btn.footable-hide {
+    background-color: transparent;
+    color: #FE4900;
+  }
+  
+  .button-soundcloud.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-soundcloud.btn.footable-hide:hover {
+    background-color: #FE4900;
+    border-color: #FE4900;
+    color: #ffffff;
+  }
+  
+  .button-soundcloud:hover {
+    background-color: #ff5b19;
+    border-color: #ff5b19;
+    color: #ffffff;
+  }
+  
+  .button-tumblr {
+    background-color: #36465D;
+    border-color: #36465D;
+    color: #ffffff;
+  }
+  
+  .button-tumblr.button-outline, .footable.table tfoot tr.footable-editing td .button-tumblr.btn.footable-hide {
+    background-color: transparent;
+    color: #36465D;
+  }
+  
+  .button-tumblr.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-tumblr.btn.footable-hide:hover {
+    background-color: #36465D;
+    border-color: #36465D;
+    color: #ffffff;
+  }
+  
+  .button-tumblr:hover {
+    background-color: #3f526d;
+    border-color: #3f526d;
+    color: #ffffff;
+  }
+  
+  .button-twitch {
+    background-color: #6441A4;
+    border-color: #6441A4;
+    color: #ffffff;
+  }
+  
+  .button-twitch.button-outline, .footable.table tfoot tr.footable-editing td .button-twitch.btn.footable-hide {
+    background-color: transparent;
+    color: #6441A4;
+  }
+  
+  .button-twitch.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-twitch.btn.footable-hide:hover {
+    background-color: #6441A4;
+    border-color: #6441A4;
+    color: #ffffff;
+  }
+  
+  .button-twitch:hover {
+    background-color: #6f48b6;
+    border-color: #6f48b6;
+    color: #ffffff;
+  }
+  
+  .button-vimeo {
+    background-color: #1AB7EA;
+    border-color: #1AB7EA;
+    color: #ffffff;
+  }
+  
+  .button-vimeo.button-outline, .footable.table tfoot tr.footable-editing td .button-vimeo.btn.footable-hide {
+    background-color: transparent;
+    color: #1AB7EA;
+  }
+  
+  .button-vimeo.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-vimeo.btn.footable-hide:hover {
+    background-color: #1AB7EA;
+    border-color: #1AB7EA;
+    color: #ffffff;
+  }
+  
+  .button-vimeo:hover {
+    background-color: #31beec;
+    border-color: #31beec;
+    color: #ffffff;
+  }
+  
+  .button-whatsapp {
+    background-color: #189D0E;
+    border-color: #189D0E;
+    color: #ffffff;
+  }
+  
+  .button-whatsapp.button-outline, .footable.table tfoot tr.footable-editing td .button-whatsapp.btn.footable-hide {
+    background-color: transparent;
+    color: #189D0E;
+  }
+  
+  .button-whatsapp.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-whatsapp.btn.footable-hide:hover {
+    background-color: #189D0E;
+    border-color: #189D0E;
+    color: #ffffff;
+  }
+  
+  .button-whatsapp:hover {
+    background-color: #1cb410;
+    border-color: #1cb410;
+    color: #ffffff;
+  }
+  
+  .button-xbox {
+    background-color: #107C0F;
+    border-color: #107C0F;
+    color: #ffffff;
+  }
+  
+  .button-xbox.button-outline, .footable.table tfoot tr.footable-editing td .button-xbox.btn.footable-hide {
+    background-color: transparent;
+    color: #107C0F;
+  }
+  
+  .button-xbox.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-xbox.btn.footable-hide:hover {
+    background-color: #107C0F;
+    border-color: #107C0F;
+    color: #ffffff;
+  }
+  
+  .button-xbox:hover {
+    background-color: #139312;
+    border-color: #139312;
+    color: #ffffff;
+  }
+  
+  .button-yahoo {
+    background-color: #4101AF;
+    border-color: #4101AF;
+    color: #ffffff;
+  }
+  
+  .button-yahoo.button-outline, .footable.table tfoot tr.footable-editing td .button-yahoo.btn.footable-hide {
+    background-color: transparent;
+    color: #4101AF;
+  }
+  
+  .button-yahoo.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-yahoo.btn.footable-hide:hover {
+    background-color: #4101AF;
+    border-color: #4101AF;
+    color: #ffffff;
+  }
+  
+  .button-yahoo:hover {
+    background-color: #4a01c8;
+    border-color: #4a01c8;
+    color: #ffffff;
+  }
+  
+  .button-youtube {
+    background-color: #FE0000;
+    border-color: #FE0000;
+    color: #ffffff;
+  }
+  
+  .button-youtube.button-outline, .footable.table tfoot tr.footable-editing td .button-youtube.btn.footable-hide {
+    background-color: transparent;
+    color: #FE0000;
+  }
+  
+  .button-youtube.button-outline:hover, .footable.table tfoot tr.footable-editing td .button-youtube.btn.footable-hide:hover {
+    background-color: #FE0000;
+    border-color: #FE0000;
+    color: #ffffff;
+  }
+  
+  .button-youtube:hover {
+    background-color: #ff1919;
+    border-color: #ff1919;
+    color: #ffffff;
+  }

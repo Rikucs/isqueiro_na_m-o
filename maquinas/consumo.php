@@ -34,9 +34,9 @@ if (isset($_POST["submit"])) {
         <div class="box">
             <div class="box-head">
                 <h3 class="title"> Obras entre <?php echo $data1; ?> e <?php echo $data2; ?></h3> </br>
-                <a href=datapdf.php?maquina=<?php echo $_GET["maquina"]; ?> class="button button-outline button-primary">Colocar outras datas</a>
+                <a href="consumo.php?maquina=<?php echo $_GET["maquina"]; ?>" class="button button-outline button-primary">Colocar outras datas</a>
                 <a class="button button-outline button-primary" href=detalhes.php?maquina=<?php echo $_GET["maquina"]; ?>>Detalhes Maquina</a>
-                <a href=consumopdf.php class="button button-outline button-primary">PDF</a>
+                <a href="datapdf.php?data1=<?php echo $data1;?>&amp;data2=<?php echo $data2;?>&amp;maquina=<?php echo $_GET["maquina"]; ?>" class="button button-outline button-primary">PDF</a>
                 <?php echo str_repeat('&nbsp;', 105); ?>
                 <a class="button button-outline button-secondary" href="maquinas.php">Voltar</a>
                 <div class="row justify-content-between align-items-center mb-10">
